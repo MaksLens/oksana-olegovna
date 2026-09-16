@@ -1,0 +1,1093 @@
+<!doctype html>
+<!-- class="draft" показывает жёлтые пометки на заглушках: где ждём фото,
+     где истории учеников — примеры, где не вписан контакт. Когда всё
+     настоящее на месте, класс убрать — пометки исчезнут сами. -->
+<html lang="ru" class="draft">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Репетитор по истории и обществознанию, ОГЭ и ЕГЭ | Оксана Олеговна</title>
+<meta name="description" content="Готовлю к ЕГЭ и ОГЭ по истории и обществознанию. Эксперт по проверке экзаменов, призёр «Учитель года&nbsp;— 2022». Средний балл учеников — 85. Первый урок бесплатно.">
+<meta name="theme-color" content="#F5F6F8">
+<meta name="color-scheme" content="light">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="История и обществознание на ЕГЭ. Средний балл учеников — 85">
+<meta property="og:description" content="Эксперт по проверке ЕГЭ, призёр «Учитель года&nbsp;— 2022». Индивидуально, вдвоём и в мини-группах. Первый урок бесплатно.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<!-- Прятать блоки до появления можно, только если скрипт действительно
+     работает. Без скрипта (или если он не загрузился за 5 секунд)
+     страница должна читаться целиком, а не быть пустой. -->
+<script>document.documentElement.classList.add("js");setTimeout(function(){if(!window.OO)document.documentElement.classList.remove("js")},5000)</script>
+<!-- Кириллица грузится первой: без неё первый экран моргает системным шрифтом -->
+<link rel="preload" href="assets/fonts/onest-6980c39d.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/onest.css">
+<link rel="stylesheet" href="assets/css/base.css?v=10">
+<link rel="stylesheet" href="assets/css/sections.css?v=10">
+<!-- Разметка для поиска. Цены обязаны совпадать с блоком «Цены» ниже:
+     поиск показывает их в выдаче, и человек приходит с этим ожиданием.
+     Рейтингов и отзывов здесь нет и не будет, пока нет настоящих. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "#tutor",
+      "name": "Оксана Олеговна",
+      "jobTitle": "Репетитор по истории и обществознанию",
+      "knowsAbout": ["История России", "Обществознание", "ЕГЭ", "ОГЭ"],
+      "award": ["Призёр конкурса «Учитель года — 2022»"]
+    },
+    {
+      "@type": "Service",
+      "name": "Подготовка к ОГЭ и ЕГЭ по истории и обществознанию",
+      "provider": { "@id": "#tutor" },
+      "offers": [
+        { "@type": "Offer", "name": "Мини-группа", "price": "1200", "priceCurrency": "RUB", "description": "за час, с ученика" },
+        { "@type": "Offer", "name": "Вдвоём", "price": "1400", "priceCurrency": "RUB", "description": "за час, с ученика" },
+        { "@type": "Offer", "name": "Индивидуально", "price": "1900", "priceCurrency": "RUB", "description": "за час" }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- Значки — линейные, из набора Tabler Icons (MIT). Один спрайт на
+     страницу: каждый значок описан один раз и дальше берётся через <use>. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-arrow-l" viewBox="0 0 24 24"><path d="M5 12l14 0"/><path d="M5 12l6 6"/><path d="M5 12l6 -6"/></symbol>
+    <symbol id="i-arrow-r" viewBox="0 0 24 24"><path d="M5 12l14 0"/><path d="M13 18l6 -6"/><path d="M13 6l6 6"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12l5 5l10 -10"/></symbol>
+    <symbol id="i-tg" viewBox="0 0 24 24"><path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4"/></symbol>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9"/><path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"/></symbol>
+    <symbol id="i-award" viewBox="0 0 24 24"><path d="M6 9a6 6 0 1 0 12 0a6 6 0 1 0 -12 0"/><path d="M12 15l3.4 5.89l1.598 -3.233l3.598 .232l-3.4 -5.889"/><path d="M6.802 12l-3.4 5.89l3.598 -.233l1.598 3.232l3.4 -5.889"/></symbol>
+    <symbol id="i-clip" viewBox="0 0 24 24"><path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"/><path d="M9 5a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z"/><path d="M9 14l2 2l4 -4"/></symbol>
+    <symbol id="i-school" viewBox="0 0 24 24"><path d="M22 9l-10 -4l-10 4l10 4l10 -4v6"/><path d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0"/><path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0"/><path d="M3 6l0 13"/><path d="M12 6l0 13"/><path d="M21 6l0 13"/></symbol>
+    <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M8 21l8 0"/><path d="M12 17l0 4"/><path d="M7 4l10 0"/><path d="M17 4v8a5 5 0 0 1 -10 0v-8"/><path d="M3 9a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M17 9a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><path d="M7 9.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z"/><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"/><path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 24 24"><path d="M12.5 21h-6.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v5"/><path d="M16 3v4"/><path d="M8 3v4"/><path d="M4 11h16"/><path d="M16 19h6"/><path d="M19 16v6"/></symbol>
+    <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M17 8v-3a1 1 0 0 0 -1 -1h-10a2 2 0 0 0 0 4h12a1 1 0 0 1 1 1v3m0 4v3a1 1 0 0 1 -1 1h-12a2 2 0 0 1 -2 -2v-12"/><path d="M20 12v4h-4a2 2 0 0 1 0 -4h4"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M3 20l1.3 -3.9c-2.324 -3.437 -1.426 -7.872 2.1 -10.374c3.526 -2.501 8.59 -2.296 11.845 .48c3.255 2.777 3.695 7.266 1.029 10.501c-2.666 3.235 -7.615 4.215 -11.574 2.293l-4.7 1"/></symbol>
+    <symbol id="i-zoom" viewBox="0 0 24 24"><path d="M3 10a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"/><path d="M7 10l6 0"/><path d="M10 7l0 6"/><path d="M21 21l-6 -6"/></symbol>
+  </defs>
+</svg>
+
+<div id="spot" aria-hidden="true"></div>
+
+<div class="nav-wrap">
+  <nav class="nav" aria-label="Разделы сайта">
+    <a href="#top" class="logo"><i></i>Оксана Олеговна</a>
+    <div class="nav-menu">
+      <a href="#about">Обо мне</a>
+      <a href="#learning">Обучение</a>
+      <a href="#cases">Результаты</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#price">Цены</a>
+      <a href="#faq">Вопросы</a>
+    </div>
+    <div class="nav-cta">
+      <a href="#trial" class="btn btn-ink"><span>Пробный урок</span></a>
+    </div>
+  </nav>
+</div>
+
+<main id="top">
+
+<!-- ═══════════ ПЕРВЫЙ ЭКРАН ═══════════ -->
+<section class="hero">
+  <div id="goo" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-txt">
+        <span class="eyebrow up"><i></i>Идёт набор на&nbsp;подготовку к&nbsp;ОГЭ и&nbsp;ЕГЭ‑2027</span>
+        <h1 class="h1" data-words>ЕГЭ по&nbsp;истории<br>и&nbsp;обществознанию.<br>Мои ученики сдают<br>в&nbsp;среднем на&nbsp;85</h1>
+        <p class="lead hero-lead up" data-delay=".5">
+          Я эксперт ЕГЭ: сама проверяю экзаменационные работы и&nbsp;знаю, за&nbsp;что&nbsp;снимают баллы.
+          Научу их не&nbsp;терять&nbsp;— даже с&nbsp;нуля.
+        </p>
+        <div class="hero-cta up" data-delay=".62">
+          <a href="#trial" class="btn btn-lime btn-lg"><span>Пробный урок бесплатно</span></a>
+          <button type="button" class="btn btn-ghost btn-lg" data-ask><span>Задать вопрос</span></button>
+        </div>
+        <div class="hero-note up" data-delay=".74">
+          <span><a href="#reviews" class="hero-rev">50&nbsp;отзывов на&nbsp;Авито</a></span>
+          <span>Мини-группы от&nbsp;1&nbsp;200&nbsp;₽</span>
+          <span>Цена не&nbsp;растёт до&nbsp;конца курса</span>
+        </div>
+      </div>
+
+      <!-- Портрет. Пока файла нет, видна подложка с монограммой; как только
+           в assets/photos появится tutor-hero.webp, фото встанет само. -->
+      <div class="por-stage up" data-delay=".3">
+        <figure class="por">
+          <div class="por-card ph" data-slot="Портрет 4:5 · tutor-hero.webp">
+            <span class="ph-mono" aria-hidden="true">ОО</span>
+            <img src="assets/photos/tutor-hero.webp" width="1200" height="1500" fetchpriority="high"
+                 alt="Оксана Олеговна, репетитор по истории и обществознанию"
+                 onload="this.parentNode.classList.add('has')" onerror="this.remove()">
+          </div>
+          <div class="chip chip-a" style="--z:70px">
+            <span class="chip-i"><svg class="ic"><use href="#i-clip"/></svg></span>
+            <span class="chip-t"><b>Эксперт по&nbsp;проверке</b><span>ЕГЭ и&nbsp;ОГЭ</span></span>
+          </div>
+          <div class="chip chip-b" style="--z:110px">
+            <span class="chip-i"><svg class="ic"><use href="#i-award"/></svg></span>
+            <span class="chip-t"><b>Призёр конкурса</b><span>«Учитель года&nbsp;— 2022»</span></span>
+          </div>
+          <div class="chip chip-c" style="--z:90px">
+            <span class="chip-n">85</span>
+            <span class="chip-t"><b>средний балл</b><span>моих учеников</span></span>
+          </div>
+          <figcaption class="sr">Оксана Олеговна</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ ГДЕ УЧАТСЯ ВЫПУСКНИКИ ═══════════
+     Едет сама, при наведении почти замирает. Две одинаковые половины
+     подряд — так строка замыкается без рывка. -->
+<section class="uni" aria-label="Где учатся выпускники">
+  <div class="wrap uni-in">
+    <span class="mono uni-cap">Выпускники учатся в</span>
+    <div class="marquee">
+      <div class="marquee-row">
+        <span>МГУ</span><i></i><span>ВШЭ</span><i></i><span>МГИМО</span><i></i>
+        <span>Финансовом университете</span><i></i><span>МГЮА</span><i></i><span>МЭИ</span><i></i>
+        <span>ведущих вузах юга России</span><i></i>
+        <span aria-hidden="true">МГУ</span><i></i><span aria-hidden="true">ВШЭ</span><i></i><span aria-hidden="true">МГИМО</span><i></i>
+        <span aria-hidden="true">Финансовом университете</span><i></i><span aria-hidden="true">МГЮА</span><i></i><span aria-hidden="true">МЭИ</span><i></i>
+        <span aria-hidden="true">ведущих вузах юга России</span><i></i>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ ЦИФРЫ ═══════════ -->
+<section class="sec sec-nums">
+  <div class="wrap">
+    <div class="nums">
+      <div class="num up"><b data-count="85">85</b><span>средний балл моих учеников на&nbsp;ЕГЭ</span></div>
+      <div class="num up" data-delay=".08"><b data-count="150" data-suffix="+">150+</b><span>выпускников готовились со&nbsp;мной</span></div>
+      <div class="num up" data-delay=".16"><b data-count="10" data-suffix="+">10+</b><span>лет преподаю историю и&nbsp;обществознание</span></div>
+      <div class="num up" data-delay=".24"><b data-count="0" data-suffix=" ₽">0&nbsp;₽</b><span>стоит первый урок</span></div>
+    </div>
+    <p class="nums-note up">
+      Для&nbsp;сравнения: средний балл по&nbsp;России на&nbsp;ЕГЭ‑2026&nbsp;— 55,2&nbsp;по&nbsp;обществознанию
+      и&nbsp;57,85&nbsp;по&nbsp;истории. Данные Рособрнадзора.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════ С ЧЕМ ПРИХОДЯТ ═══════════
+     Четыре ситуации по календарю учебного года: человек, пришедший
+     в любом месяце, находит свою. Карточки липнут к верху экрана,
+     следующая наезжает сверху, прежняя уменьшается — как колода.
+     Иллюстрации нарисованы кодом: в них русские слова и цифры,
+     а их картинка не умеет ни напечатать, ни оживить. -->
+<section class="sec stack-sec" id="situations">
+  <div class="wrap">
+    <h2 class="h2 up">С&nbsp;чем ко&nbsp;мне<br>приходят</h2>
+    <p class="lead up" data-delay=".1" style="margin-top:18px">
+      Четыре ситуации, из&nbsp;которых мы уже выходили. Узнаёте свою?
+    </p>
+  </div>
+  <div class="wrap">
+    <div class="stack">
+
+      <article class="card-s" style="--i:0">
+        <div class="card-in">
+          <div class="card-txt">
+            <span class="mono">Сентябрь · 10–11&nbsp;класс</span>
+            <h3 class="h3">«Я вообще не&nbsp;понимаю историю»</h3>
+            <p>Начинаем с&nbsp;нуля и&nbsp;без&nbsp;стыда. Сначала строим каркас эпох и&nbsp;причин,
+              потом наращиваем даты и&nbsp;имена. Так они держатся в&nbsp;памяти,
+              а&nbsp;не&nbsp;вылетают через неделю.</p>
+          </div>
+          <div class="card-art art-dates" aria-hidden="true">
+            <img class="art-photo" src="assets/art/art-history.webp" alt="" width="1800" height="1005" loading="lazy" decoding="async"
+                 onload="this.parentNode.classList.add('has-photo')" onerror="this.remove()">
+            <i class="art-glow"></i>
+            <div class="art-in glass">
+              <div class="odo yr" data-odo="988">988</div>
+              <div class="yr-ev">Крещение Руси</div>
+              <div class="yr-dots"></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card-s" style="--i:1">
+        <div class="card-in">
+          <div class="card-txt">
+            <span class="mono">Декабрь · первый пробник</span>
+            <h3 class="h3">«Написали пробник&nbsp;— и&nbsp;паника»</h3>
+            <p>Разбираем пробник по&nbsp;заданиям и&nbsp;видим, где уходят баллы.
+              Цель первого месяца&nbsp;— плюс 15&nbsp;баллов к&nbsp;стартовому результату.
+              Мы её замеряем, а&nbsp;не&nbsp;обещаем на&nbsp;словах.</p>
+          </div>
+          <div class="card-art art-score" aria-hidden="true">
+            <img class="art-photo" src="assets/art/art-exam.webp" alt="" width="1400" height="1045" loading="lazy" decoding="async"
+                 onload="this.parentNode.classList.add('has-photo')" onerror="this.remove()">
+            <i class="art-glow"></i>
+            <i class="art-wash"></i>
+            <i class="ring-disc"></i>
+            <svg class="ring" viewBox="0 0 200 200">
+              <circle class="ring-ticks" cx="100" cy="100" r="82" pathLength="100"/>
+              <circle class="ring-was" cx="100" cy="100" r="82" pathLength="100"/>
+              <circle class="ring-add" cx="100" cy="100" r="82" pathLength="100"/>
+            </svg>
+            <div class="ring-num"><b>42</b><span>баллов на&nbsp;старте</span></div>
+            <em class="ring-plus">+15</em>
+          </div>
+        </div>
+      </article>
+
+      <article class="card-s" style="--i:2">
+        <div class="card-in">
+          <div class="card-txt">
+            <span class="mono">Март · вторая часть</span>
+            <h3 class="h3">«Теорию знаю, а&nbsp;баллов нет»</h3>
+            <p>Чаще всего баллы теряются на&nbsp;оформлении второй части. Как&nbsp;эксперт,
+              показываю критерии изнутри: за&nbsp;3–5&nbsp;занятий учимся писать ответы так,
+              как&nbsp;ждёт проверяющий.</p>
+          </div>
+          <div class="card-art art-check" aria-hidden="true">
+            <img class="art-photo" src="assets/art/art-check.webp" alt="" width="1400" height="1045" loading="lazy" decoding="async"
+                 onload="this.parentNode.classList.add('has-photo')" onerror="this.remove()">
+            <i class="art-glow"></i>
+            <i class="art-wash"></i>
+            <div class="ans">
+              <div class="ans-h"><b>Задание второй части</b><span>ответ ученика</span></div>
+              <div class="ans-lines"><i></i><i></i><i></i></div>
+              <ul class="crit">
+                <li><s></s>Понятие раскрыто верно</li>
+                <li><s></s>Примеры по&nbsp;условию задания</li>
+                <li><s></s>Аргумент обоснован</li>
+              </ul>
+              <div class="ans-total">Баллы за&nbsp;ответ: <b>0</b> из&nbsp;6</div>
+              <span class="stamp">по&nbsp;критериям ЕГЭ</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card-s" style="--i:3">
+        <div class="card-in">
+          <div class="card-txt">
+            <span class="mono">Май · до&nbsp;экзамена месяц</span>
+            <h3 class="h3">«Уже поздно?»</h3>
+            <p>Нет. Ко&nbsp;мне приходят и&nbsp;за&nbsp;месяц, и&nbsp;за&nbsp;две недели. Берём темы,
+              которые точно будут на&nbsp;экзамене и&nbsp;дают больше всего баллов,
+              и&nbsp;доводим их до&nbsp;автоматизма.</p>
+          </div>
+          <div class="card-art art-count" aria-hidden="true">
+            <img class="art-photo" src="assets/art/art-time.webp" alt="" width="1400" height="1045" loading="lazy" decoding="async"
+                 onload="this.parentNode.classList.add('has-photo')" onerror="this.remove()">
+            <i class="art-glow"></i>
+            <i class="art-wash"></i>
+            <div class="art-in glass">
+              <div class="odo cnt" data-odo="30">30</div>
+              <div class="cnt-l">дней до&nbsp;экзамена</div>
+              <ul class="blocks">
+                <li>Человек и&nbsp;общество</li><li>Экономика</li><li>Социальные отношения</li><li>Политика</li><li>Право</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ ОБО МНЕ ═══════════
+     Галерею листают пальцем, мышью, стрелками и клавиатурой. Файлы
+     tutor-01…06.webp из assets/photos встают на место сами. -->
+<section class="sec about-sec" id="about">
+  <div class="wrap">
+    <div class="about">
+      <div class="gal up" data-gal>
+        <div class="gal-view">
+          <div class="gal-track" tabindex="0" aria-label="Фотографии, листайте влево и вправо">
+            <figure class="gal-s">
+              <div class="ph" data-slot="tutor-01.webp · на уроке"><span class="ph-mono" aria-hidden="true">ОО</span>
+                <img src="assets/photos/tutor-01.webp" alt="Оксана Олеговна на уроке" loading="lazy" decoding="async"
+                     onload="this.parentNode.classList.add('has')" onerror="this.remove()"></div>
+              <figcaption>На&nbsp;уроке</figcaption>
+            </figure>
+            <figure class="gal-s">
+              <div class="ph" data-slot="tutor-02.webp · награждение"><span class="ph-mono" aria-hidden="true">ОО</span>
+                <img src="assets/photos/tutor-02.webp" alt="Награждение на конкурсе «Учитель года&nbsp;— 2022»" loading="lazy" decoding="async"
+                     onload="this.parentNode.classList.add('has')" onerror="this.remove()"></div>
+              <figcaption>На&nbsp;награждении «Учитель года&nbsp;— 2022»</figcaption>
+            </figure>
+            <figure class="gal-s">
+              <div class="ph" data-slot="tutor-03.webp · с учениками"><span class="ph-mono" aria-hidden="true">ОО</span>
+                <img src="assets/photos/tutor-03.webp" alt="Оксана Олеговна с учениками" loading="lazy" decoding="async"
+                     onload="this.parentNode.classList.add('has')" onerror="this.remove()"></div>
+              <figcaption>С&nbsp;учениками</figcaption>
+            </figure>
+            <figure class="gal-s">
+              <div class="ph" data-slot="tutor-04.webp · за материалами"><span class="ph-mono" aria-hidden="true">ОО</span>
+                <img src="assets/photos/tutor-04.webp" alt="Подготовка материалов к урокам" loading="lazy" decoding="async"
+                     onload="this.parentNode.classList.add('has')" onerror="this.remove()"></div>
+              <figcaption>Готовлю материалы к&nbsp;урокам</figcaption>
+            </figure>
+            <figure class="gal-s">
+              <div class="ph" data-slot="tutor-05.webp · с дипломами"><span class="ph-mono" aria-hidden="true">ОО</span>
+                <img src="assets/photos/tutor-05.webp" alt="Оксана Олеговна с дипломами и грамотами" loading="lazy" decoding="async"
+                     onload="this.parentNode.classList.add('has')" onerror="this.remove()"></div>
+              <figcaption>Дипломы и&nbsp;грамоты</figcaption>
+            </figure>
+            <figure class="gal-s">
+              <div class="ph" data-slot="tutor-06.webp · живой кадр"><span class="ph-mono" aria-hidden="true">ОО</span>
+                <img src="assets/photos/tutor-06.webp" alt="Оксана Олеговна" loading="lazy" decoding="async"
+                     onload="this.parentNode.classList.add('has')" onerror="this.remove()"></div>
+              <figcaption>Между уроками</figcaption>
+            </figure>
+          </div>
+          <button type="button" class="gal-zoom" aria-label="Открыть фото на весь экран">
+            <svg class="ic"><use href="#i-zoom"/></svg>
+          </button>
+        </div>
+        <div class="gal-bar">
+          <div class="gal-prog" aria-hidden="true"></div>
+          <p class="gal-cap" aria-live="polite">На&nbsp;уроке</p>
+          <div class="gal-nav">
+            <button type="button" class="gal-b" data-dir="-1" aria-label="Предыдущее фото"><svg class="ic"><use href="#i-arrow-l"/></svg></button>
+            <button type="button" class="gal-b" data-dir="1" aria-label="Следующее фото"><svg class="ic"><use href="#i-arrow-r"/></svg></button>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="h2 about-head up">Меня зовут<br>Оксана Олеговна</h2>
+      <div class="about-txt">
+        <p class="lead about-lead up" data-delay=".08">
+          Больше десяти лет преподаю историю и&nbsp;обществознание. Как&nbsp;эксперт проверяю
+          работы ЕГЭ, ОГЭ и&nbsp;олимпиад, поэтому готовлю не&nbsp;«по&nbsp;учебнику», а&nbsp;по&nbsp;критериям,
+          с&nbsp;которыми работу потом откроет проверяющий.
+        </p>
+        <p class="about-p up" data-delay=".14">
+          Пишу пособия и&nbsp;методические материалы&nbsp;— по&nbsp;ним и&nbsp;занимаются мои ученики.
+          Слежу за&nbsp;каждым изменением экзамена, чтобы в&nbsp;июне не&nbsp;было сюрпризов.
+        </p>
+        <p class="about-p up" data-delay=".2">
+          Мне важно, чтобы на&nbsp;уроке было не&nbsp;страшно ошибаться. Я не&nbsp;ругаю,
+          а&nbsp;объясняю, пока не&nbsp;станет понятно.
+        </p>
+        <ul class="facts stagger">
+          <li><span class="facts-i"><svg class="ic"><use href="#i-school"/></svg></span>Красные дипломы бакалавриата и&nbsp;магистратуры</li>
+          <li><span class="facts-i"><svg class="ic"><use href="#i-clip"/></svg></span>Эксперт по&nbsp;проверке ЕГЭ, ОГЭ и&nbsp;олимпиад</li>
+          <li><span class="facts-i"><svg class="ic"><use href="#i-award"/></svg></span>Призёр конкурса «Учитель года&nbsp;— 2022»</li>
+          <li><span class="facts-i"><svg class="ic"><use href="#i-book"/></svg></span>Автор пособий и&nbsp;методических материалов</li>
+          <li><span class="facts-i"><svg class="ic"><use href="#i-trophy"/></svg></span>Победитель международных и&nbsp;всероссийских конкурсов</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ НАГРАДЫ И ДОКУМЕНТЫ ═══════════
+     Каждый документ — отдельная карточка со своим рассказом. По нажатию
+     карточка вылетает на весь экран, там её можно увеличить и листать.
+     Подробный текст лежит в .doc-more прямо в разметке: его читает
+     поиск, а просмотрщик берёт оттуда же — второго источника нет.
+     Файлы: assets/awards/award-01…07.webp. Документы не обрезаются:
+     лист виден целиком при любой ориентации. -->
+<section class="sec docs-sec" id="awards">
+  <div class="wrap">
+    <h2 class="h2 sec-head up">Награды<br>и&nbsp;документы</h2>
+    <p class="lead up" data-delay=".08" style="margin-top:18px;max-width:44ch">
+      Каждый можно открыть и&nbsp;рассмотреть вблизи.
+    </p>
+    <div class="docs stagger">
+
+      <article class="doc doc-main">
+        <div class="doc-img ph ph-doc" data-slot="award-01.webp · диплом призёра">
+          <span class="paper" aria-hidden="true"><b>Диплом</b><i></i><i></i><i></i><s></s></span>
+          <img src="assets/awards/award-01.webp" alt="Диплом призёра конкурса «Учитель года&nbsp;— 2022»" loading="lazy" decoding="async"
+               onload="this.parentNode.classList.add('has')" onerror="this.remove()">
+        </div>
+        <div class="doc-txt">
+          <em>2022 · Республика Адыгея</em>
+          <h3 class="doc-t">Призёр конкурса «Учитель года&nbsp;— 2022»</h3>
+          <p>Награду вручал Глава Республики Адыгея Мурат Кумпилов.</p>
+        </div>
+        <div class="doc-more" hidden>
+          <p>«Учитель года»&nbsp;— один из&nbsp;самых известных профессиональных конкурсов для&nbsp;учителей
+            в&nbsp;России. Участники дают открытые уроки перед жюри, проводят мастер-классы
+            и&nbsp;защищают свою методику.</p>
+          <p>Для&nbsp;родителей это знак, что&nbsp;подход к&nbsp;урокам прошёл проверку профессионального
+            сообщества, а&nbsp;не&nbsp;держится только на&nbsp;отзывах.</p>
+        </div>
+        <button type="button" class="doc-open" aria-label="Открыть: Призёр конкурса «Учитель года&nbsp;— 2022»"></button>
+      </article>
+
+      <article class="doc">
+        <div class="doc-img ph ph-doc" data-slot="award-02.webp">
+          <span class="paper red" aria-hidden="true"><b>Диплом</b><i></i><i></i><i></i><s></s></span>
+          <img src="assets/awards/award-02.webp" alt="Диплом магистра с отличием" loading="lazy" decoding="async"
+               onload="this.parentNode.classList.add('has')" onerror="this.remove()">
+        </div>
+        <div class="doc-txt">
+          <em>Магистратура</em>
+          <h3 class="doc-t">Красный диплом магистра</h3>
+        </div>
+        <div class="doc-more" hidden>
+          <p>Магистратура с&nbsp;отличием<span class="draft-fill"> · [вуз, направление, год]</span>.</p>
+          <p>Глубокая предметная база помогает объяснять сложные темы простыми словами
+            и&nbsp;отвечать на&nbsp;вопросы, которые выходят за&nbsp;рамки учебника.</p>
+        </div>
+        <button type="button" class="doc-open" aria-label="Открыть: Красный диплом магистра"></button>
+      </article>
+
+      <article class="doc">
+        <div class="doc-img ph ph-doc" data-slot="award-03.webp">
+          <span class="paper red" aria-hidden="true"><b>Диплом</b><i></i><i></i><i></i><s></s></span>
+          <img src="assets/awards/award-03.webp" alt="Диплом бакалавра с отличием" loading="lazy" decoding="async"
+               onload="this.parentNode.classList.add('has')" onerror="this.remove()">
+        </div>
+        <div class="doc-txt">
+          <em>Бакалавриат</em>
+          <h3 class="doc-t">Красный диплом бакалавра</h3>
+        </div>
+        <div class="doc-more" hidden>
+          <p>Бакалавриат с&nbsp;отличием<span class="draft-fill"> · [вуз, направление, год]</span>.</p>
+          <p>Отсюда привычка разбираться в&nbsp;предмете системно: сначала связи и&nbsp;причины,
+            потом детали. Так же построены мои уроки.</p>
+        </div>
+        <button type="button" class="doc-open" aria-label="Открыть: Красный диплом бакалавра"></button>
+      </article>
+
+      <article class="doc">
+        <div class="doc-img ph ph-doc" data-slot="award-04.webp">
+          <span class="paper" aria-hidden="true"><b>Эксперт</b><i></i><i></i><i></i><s></s></span>
+          <img src="assets/awards/award-04.webp" alt="Документ эксперта по проверке ЕГЭ и ОГЭ" loading="lazy" decoding="async"
+               onload="this.parentNode.classList.add('has')" onerror="this.remove()">
+        </div>
+        <div class="doc-txt">
+          <em>ЕГЭ · ОГЭ · олимпиады</em>
+          <h3 class="doc-t">Эксперт по&nbsp;проверке экзаменов</h3>
+        </div>
+        <div class="doc-more" hidden>
+          <p>Эксперт видит сотни работ и&nbsp;знает, на&nbsp;чём чаще всего теряют баллы: неполный ответ,
+            пример не&nbsp;по&nbsp;условию, аргумент без&nbsp;обоснования.</p>
+          <p>На&nbsp;уроках я показываю эти ловушки заранее, чтобы на&nbsp;экзамене в&nbsp;них не&nbsp;попасть.</p>
+        </div>
+        <button type="button" class="doc-open" aria-label="Открыть: Эксперт по проверке экзаменов"></button>
+      </article>
+
+      <article class="doc">
+        <div class="doc-img ph ph-doc" data-slot="award-05.webp">
+          <span class="paper" aria-hidden="true"><b>Пособие</b><i></i><i></i><i></i><s></s></span>
+          <img src="assets/awards/award-05.webp" alt="Пособия и методические материалы Оксаны Олеговны" loading="lazy" decoding="async"
+               onload="this.parentNode.classList.add('has')" onerror="this.remove()">
+        </div>
+        <div class="doc-txt">
+          <em>Авторские материалы</em>
+          <h3 class="doc-t">Пособия и&nbsp;методички</h3>
+        </div>
+        <div class="doc-more" hidden>
+          <p>В&nbsp;пособия вошло то, что&nbsp;работает на&nbsp;экзамене: схемы, таблицы и&nbsp;разборы
+            типичных ошибок<span class="draft-fill"> · [названия пособий]</span>.</p>
+          <p>Ученики получают эти материалы вместе с&nbsp;курсом.</p>
+        </div>
+        <button type="button" class="doc-open" aria-label="Открыть: Пособия и методички"></button>
+      </article>
+
+      <article class="doc doc-wide">
+        <div class="doc-img ph ph-doc" data-slot="award-06.webp">
+          <span class="paper" aria-hidden="true"><b>Диплом</b><i></i><i></i><i></i><s></s></span>
+          <img src="assets/awards/award-06.webp" alt="Диплом победителя международного конкурса" loading="lazy" decoding="async"
+               onload="this.parentNode.classList.add('has')" onerror="this.remove()">
+        </div>
+        <div class="doc-txt">
+          <em>Международный уровень</em>
+          <h3 class="doc-t">Победитель международных конкурсов</h3>
+        </div>
+        <div class="doc-more" hidden>
+          <p><span class="draft-fill">[Название конкурса, год, с&nbsp;какой работой]. </span>Работу оценивали
+            педагоги из&nbsp;разных стран.</p>
+        </div>
+        <button type="button" class="doc-open" aria-label="Открыть: Победитель международных конкурсов"></button>
+      </article>
+
+      <article class="doc doc-wide">
+        <div class="doc-img ph ph-doc" data-slot="award-07.webp">
+          <span class="paper" aria-hidden="true"><b>Диплом</b><i></i><i></i><i></i><s></s></span>
+          <img src="assets/awards/award-07.webp" alt="Диплом победителя всероссийского конкурса" loading="lazy" decoding="async"
+               onload="this.parentNode.classList.add('has')" onerror="this.remove()">
+        </div>
+        <div class="doc-txt">
+          <em>Всероссийский уровень</em>
+          <h3 class="doc-t">Победитель всероссийских конкурсов</h3>
+        </div>
+        <div class="doc-more" hidden>
+          <p><span class="draft-fill">[Название конкурса, год, с&nbsp;какой работой]. </span>Методика и&nbsp;материалы
+            прошли проверку жюри всероссийского уровня.</p>
+        </div>
+        <button type="button" class="doc-open" aria-label="Открыть: Победитель всероссийских конкурсов"></button>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ КАК ПРОХОДИТ ОБУЧЕНИЕ ═══════════
+     Весь путь до экзамена, а не один урок: что происходит на старте,
+     на каждом занятии, после него и перед ЕГЭ. Лента загорается по мере
+     чтения, кольцо справа заполняется и подписывает этап, до которого
+     дочитали. -->
+<section class="sec les-sec" id="learning">
+  <div class="les-tint" aria-hidden="true">
+    <i class="t1"></i><i class="t2"></i><i class="t3"></i>
+  </div>
+  <div class="wrap">
+    <h2 class="h2 sec-head up">Как&nbsp;проходит<br>обучение</h2>
+    <p class="lead les-lead up" data-delay=".08">Работаю на&nbsp;максимум: авторская методика, проверка каждого домашнего задания и&nbsp;пробники в&nbsp;формате ЕГЭ.</p>
+    <div class="clock up" data-delay=".1" aria-hidden="true">
+      <svg viewBox="0 0 120 120">
+        <defs>
+          <linearGradient id="clk" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#F0A24A"/>
+            <stop offset=".5" stop-color="#C9F24D"/>
+            <stop offset="1" stop-color="#3B49DF"/>
+          </linearGradient>
+        </defs>
+        <circle class="clock-ticks" cx="60" cy="60" r="50" pathLength="7"/>
+        <circle class="clock-arc" cx="60" cy="60" r="50" pathLength="100"/>
+      </svg>
+      <span class="clock-t"><b>старт</b></span>
+    </div>
+    <div class="les-hold">
+      <i class="les-rail" aria-hidden="true"><u></u></i>
+      <ol class="les stagger">
+        <li data-short="старт"><b>Старт</b><p><strong>Диагностика и&nbsp;личный план.</strong> Смотрим, откуда стартуем, ставим цель в&nbsp;баллах и&nbsp;расписываем путь до&nbsp;экзамена под ваш уровень.</p></li>
+        <li data-short="уроки"><b>Каждый урок</b><p><strong>Авторская методика.</strong> Схемы, связи и&nbsp;мои пособия вместо зубрёжки. Разбираем ловушки ЕГЭ, на&nbsp;которых теряют баллы.</p></li>
+        <li data-short="ДЗ"><b>После урока</b><p><strong>Домашнее задание с&nbsp;проверкой.</strong> Проверяю каждое ДЗ и&nbsp;подробно разбираю ошибки, а&nbsp;не&nbsp;просто ставлю оценку.</p></li>
+        <li data-short="пробники"><b>Регулярно</b><p><strong>Пробники в&nbsp;формате ЕГЭ.</strong> Проверяю по&nbsp;критериям эксперта и&nbsp;показываю, сколько баллов прибавилось с&nbsp;прошлого раза.</p></li>
+        <li data-short="на связи"><b>Между уроками</b><p><strong>Связь с&nbsp;учеником и&nbsp;родителями.</strong> Отвечаю на&nbsp;вопросы между занятиями, родители всегда знают, как&nbsp;идут дела.</p></li>
+        <li data-short="записи"><b>В&nbsp;любой момент</b><p><strong>Записи уроков и&nbsp;готовые материалы.</strong> Пропущенную тему можно пересмотреть, конспекты и&nbsp;пособия остаются у&nbsp;ученика.</p></li>
+        <li data-short="финал"><b>Перед экзаменом</b><p><strong>Финальное повторение.</strong> Бесплатное групповое занятие «Быстрое повторение всего курса»: собираем всё в&nbsp;одну систему.</p></li>
+      </ol>
+    </div>
+    <p class="les-sum up">Ничего не&nbsp;остаётся без&nbsp;проверки:<br>ни&nbsp;домашнее задание, ни&nbsp;пробник.</p>
+  </div>
+</section>
+
+<!-- ═══════════ ИСТОРИИ УЧЕНИКОВ ═══════════
+     На широком экране секция встаёт на месте, а карточки едут вбок
+     вместе с прокруткой вниз. На телефоне — обычная лента под палец.
+     ⚠ Сейчас это ПРИМЕРЫ, собранные по объявлению (с нуля, за месяц,
+     вторая часть, ОГЭ). Перед публикацией заменить настоящими
+     историями — с согласия родителей. Пометки .draft-tag уйдут
+     вместе с классом draft у <html>. -->
+<section class="cases-sec" id="cases">
+  <div class="wrap cases-head">
+    <h2 class="h2 up">Истории<br>моих учеников</h2>
+    <p class="lead up" data-delay=".08" style="margin-top:18px">Разные стартовые точки и&nbsp;разное время до&nbsp;экзамена.</p>
+  </div>
+  <!-- cases-run задаёт длину прокрутки, cases-pin внутри неё стоит на месте,
+       пока лента едет. Заголовок снаружи: он уходит вверх обычным порядком,
+       и в закреплённом кадре остаются только истории — они влезают в экран
+       даже на ноутбуке с невысоким окном. -->
+  <div class="cases-run">
+  <div class="cases-pin">
+    <div class="cases-view">
+      <div class="cases-track">
+
+        <article class="case" data-from="34" data-to="82" data-max="100">
+          <span class="draft-tag">пример · заменить реальной историей</span>
+          <div class="case-top"><span class="tag">ЕГЭ · обществознание</span><span class="tag">индивидуально</span><span class="tag">9&nbsp;месяцев</span></div>
+          <h3 class="h3">С&nbsp;нуля до&nbsp;бюджета</h3>
+          <div class="case-score">
+            <div class="from"><em>первый пробник</em><b>34</b></div>
+            <svg class="case-line" viewBox="0 0 240 80" aria-hidden="true"><path pathLength="1"/><circle r="4.5"/></svg>
+            <div class="to"><em>ЕГЭ</em><b>82</b></div>
+          </div>
+          <dl class="case-dl">
+            <div><dt>С&nbsp;чем пришла</dt><dd>Обществознание казалось лёгким, пока первый пробник не&nbsp;показал 34&nbsp;балла. Путала понятия, вторую часть не&nbsp;решала.</dd></div>
+            <div><dt>Что&nbsp;делали</dt><dd>Прошли курс по&nbsp;пяти блокам, завели словарь терминов. Вторую часть разбирали по&nbsp;критериям, раз&nbsp;в&nbsp;месяц писали пробник.</dd></div>
+            <div><dt>Итог</dt><dd>82&nbsp;балла и&nbsp;бюджетное место на&nbsp;юридическом.</dd></div>
+          </dl>
+        </article>
+
+        <article class="case" data-from="41" data-to="72" data-max="100">
+          <span class="draft-tag">пример · заменить реальной историей</span>
+          <div class="case-top"><span class="tag">ЕГЭ · история</span><span class="tag">индивидуально</span><span class="tag">5&nbsp;недель</span></div>
+          <h3 class="h3">За&nbsp;пять недель до&nbsp;экзамена</h3>
+          <div class="case-score">
+            <div class="from"><em>в&nbsp;конце апреля</em><b>41</b></div>
+            <svg class="case-line" viewBox="0 0 240 80" aria-hidden="true"><path pathLength="1"/><circle r="4.5"/></svg>
+            <div class="to"><em>ЕГЭ</em><b>72</b></div>
+          </div>
+          <dl class="case-dl">
+            <div><dt>С&nbsp;чем пришёл</dt><dd>Написал за&nbsp;пять недель до&nbsp;экзамена. База была, системы не&nbsp;было.</dd></div>
+            <div><dt>Что&nbsp;делали</dt><dd>Никакой теории «на&nbsp;всякий случай». Только темы, которые дают больше всего баллов, и&nbsp;задания, на&nbsp;которых их обычно теряют.</dd></div>
+            <div><dt>Итог</dt><dd>72&nbsp;балла. Хватило для&nbsp;поступления на&nbsp;выбранное направление.</dd></div>
+          </dl>
+        </article>
+
+        <article class="case" data-from="61" data-to="89" data-max="100">
+          <span class="draft-tag">пример · заменить реальной историей</span>
+          <div class="case-top"><span class="tag">ЕГЭ · обществознание</span><span class="tag">вдвоём</span><span class="tag">4&nbsp;месяца</span></div>
+          <h3 class="h3">Вторая часть за&nbsp;пять занятий</h3>
+          <div class="case-score">
+            <div class="from"><em>пробник в&nbsp;январе</em><b>61</b></div>
+            <svg class="case-line" viewBox="0 0 240 80" aria-hidden="true"><path pathLength="1"/><circle r="4.5"/></svg>
+            <div class="to"><em>ЕГЭ</em><b>89</b></div>
+          </div>
+          <dl class="case-dl">
+            <div><dt>С&nbsp;чем пришла</dt><dd>Тесты решала хорошо, а&nbsp;на&nbsp;второй части теряла почти половину баллов.</dd></div>
+            <div><dt>Что&nbsp;делали</dt><dd>Пять занятий только на&nbsp;оформление: план, примеры, обоснование. Потом в&nbsp;паре проверяли ответы друг друга по&nbsp;критериям.</dd></div>
+            <div><dt>Итог</dt><dd>89&nbsp;баллов и&nbsp;поступление в&nbsp;ВШЭ.</dd></div>
+          </dl>
+        </article>
+
+        <article class="case" data-from="3" data-to="5" data-min="2" data-max="5">
+          <span class="draft-tag">пример · заменить реальной историей</span>
+          <div class="case-top"><span class="tag">ОГЭ · история</span><span class="tag">мини-группа</span><span class="tag">7&nbsp;месяцев</span></div>
+          <h3 class="h3">ОГЭ без&nbsp;страха ошибиться</h3>
+          <div class="case-score">
+            <div class="from"><em>оценка в&nbsp;сентябре</em><b>3</b></div>
+            <svg class="case-line" viewBox="0 0 240 80" aria-hidden="true"><path pathLength="1"/><circle r="4.5"/></svg>
+            <div class="to"><em>ОГЭ</em><b>5</b></div>
+          </div>
+          <dl class="case-dl">
+            <div><dt>С&nbsp;чем пришёл</dt><dd>Боялся отвечать и&nbsp;был уверен, что&nbsp;история «не&nbsp;его» предмет.</dd></div>
+            <div><dt>Что&nbsp;делали</dt><dd>Мини-группа из&nbsp;шести человек, квизы и&nbsp;разборы. Когда ошибаются все, ошибаться уже не&nbsp;страшно.</dd></div>
+            <div><dt>Итог</dt><dd>Пятёрка на&nbsp;ОГЭ и&nbsp;история в&nbsp;профильном классе.</dd></div>
+          </dl>
+        </article>
+
+        <article class="case case-more">
+          <b class="case-more-t">Больше историй&nbsp;— в&nbsp;отзывах</b>
+          <p>Родители и&nbsp;ученики сами пишут, с&nbsp;чем пришли и&nbsp;что&nbsp;получилось.</p>
+          <a class="btn btn-lime btn-lg" href="#reviews"><span>Читать отзывы</span><svg class="ic"><use href="#i-arrow-r"/></svg></a>
+        </article>
+
+      </div>
+    </div>
+    <div class="wrap cases-ctl">
+      <div class="cases-prog" aria-hidden="true"><u></u></div>
+      <button type="button" class="gal-b" data-case="-1" aria-label="Предыдущая история"><svg class="ic"><use href="#i-arrow-l"/></svg></button>
+      <button type="button" class="gal-b" data-case="1" aria-label="Следующая история"><svg class="ic"><use href="#i-arrow-r"/></svg></button>
+    </div>
+  </div>
+  </div>
+</section>
+
+<!-- ═══════════ ОТЗЫВЫ ═══════════
+     Скриншоты настоящих отзывов с Авито: assets/reviews/review-01…08.webp
+     встают на место сами. Лента листается пальцем и мышью, карточки
+     поворачиваются к центру, как в витрине; нажатие открывает отзыв на
+     весь экран, чтобы его можно было прочитать целиком.
+     Ссылка на профиль — window.CONTACTS.avito в конце файла. -->
+<section class="sec rev-sec" id="reviews">
+  <div class="wrap">
+    <div class="rev-head">
+      <div class="rev-score up">
+        <span class="rev-logo"><img src="assets/img/avito.png" alt="Авито" width="30" height="30" loading="lazy"></span>
+        <b data-count="50">50</b>
+        <span class="rev-l">отзывов на&nbsp;Авито</span>
+      </div>
+      <div class="rev-txt">
+        <h2 class="h2 up">Что&nbsp;пишут ученики<br>и&nbsp;родители</h2>
+        <p class="lead up" data-delay=".08">Отзывы оставляют сами ученики и&nbsp;родители после занятий. Все 50&nbsp;можно прочитать в&nbsp;профиле на&nbsp;Авито.</p>
+        <div class="up" data-delay=".14">
+          <a class="btn btn-ink btn-lg" data-contact="avito" href="#"><img src="assets/img/avito.png" alt="" width="20" height="20" class="rev-btn-logo"><span>Все отзывы на&nbsp;Авито</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="rev-view">
+    <div class="rev-track">
+      <figure class="rev">
+        <div class="rev-shot ph" data-slot="review-01.webp · скрин отзыва">
+          <span class="rev-sk" aria-hidden="true"><span class="rev-sk-top"><i class="rev-sk-ava"></i><span><i></i><i></i></span></span><span class="rev-sk-stars"><i></i><i></i><i></i><i></i><i></i></span><span class="rev-sk-lines"><i></i><i></i><i></i><i></i><i></i><i></i></span></span>
+          <img src="assets/reviews/review-01.webp" alt="Отзыв на Авито" loading="lazy" decoding="async"
+               onload="this.parentNode.classList.add('has')" onerror="this.remove()">
+        </div>
+        <button type="button" class="rev-open" aria-label="Открыть отзыв целиком"><span class="rev-more">Читать целиком</span></button>
+      </figure>
+      <figure class="rev">
+        <div class="rev-shot ph" data-slot="review-02.webp · скрин отзыва">
+          <span class="rev-sk" aria-hidden="true"><span class="rev-sk-top"><i class="rev-sk-ava"></i><span><i></i><i></i></span></span><span class="rev-sk-stars"><i></i><i></i><i></i><i></i><i></i></span><span class="rev-sk-lines"><i></i><i></i><i></i><i></i><i></i><i></i></span></span>
+          <img src="assets/reviews/review-02.webp" alt="Отзыв на Авито" loading="lazy" decoding="async"
+               onload="this.parentNode.classList.add('has')" onerror="this.remove()">
+        </div>
+        <button type="button" class="rev-open" aria-label="Открыть отзыв целиком"><span class="rev-more">Читать целиком</span></button>
+      </figure>
+      <figure class="rev">
+        <div class="rev-shot ph" data-slot="review-03.webp · скрин отзыва">
+          <span class="rev-sk" aria-hidden="true"><span class="rev-sk-top"><i class="rev-sk-ava"></i><span><i></i><i></i></span></span><span class="rev-sk-stars"><i></i><i></i><i></i><i></i><i></i></span><span class="rev-sk-lines"><i></i><i></i><i></i><i></i><i></i><i></i></span></span>
+          <img src="assets/reviews/review-03.webp" alt="Отзыв на Авито" loading="lazy" decoding="async"
+               onload="this.parentNode.classList.add('has')" onerror="this.remove()">
+        </div>
+        <button type="button" class="rev-open" aria-label="Открыть отзыв целиком"><span class="rev-more">Читать целиком</span></button>
+      </figure>
+      <figure class="rev">
+        <div class="rev-shot ph" data-slot="review-04.webp · скрин отзыва">
+          <span class="rev-sk" aria-hidden="true"><span class="rev-sk-top"><i class="rev-sk-ava"></i><span><i></i><i></i></span></span><span class="rev-sk-stars"><i></i><i></i><i></i><i></i><i></i></span><span class="rev-sk-lines"><i></i><i></i><i></i><i></i><i></i><i></i></span></span>
+          <img src="assets/reviews/review-04.webp" alt="Отзыв на Авито" loading="lazy" decoding="async"
+               onload="this.parentNode.classList.add('has')" onerror="this.remove()">
+        </div>
+        <button type="button" class="rev-open" aria-label="Открыть отзыв целиком"><span class="rev-more">Читать целиком</span></button>
+      </figure>
+      <figure class="rev">
+        <div class="rev-shot ph" data-slot="review-05.webp · скрин отзыва">
+          <span class="rev-sk" aria-hidden="true"><span class="rev-sk-top"><i class="rev-sk-ava"></i><span><i></i><i></i></span></span><span class="rev-sk-stars"><i></i><i></i><i></i><i></i><i></i></span><span class="rev-sk-lines"><i></i><i></i><i></i><i></i><i></i><i></i></span></span>
+          <img src="assets/reviews/review-05.webp" alt="Отзыв на Авито" loading="lazy" decoding="async"
+               onload="this.parentNode.classList.add('has')" onerror="this.remove()">
+        </div>
+        <button type="button" class="rev-open" aria-label="Открыть отзыв целиком"><span class="rev-more">Читать целиком</span></button>
+      </figure>
+      <figure class="rev">
+        <div class="rev-shot ph" data-slot="review-06.webp · скрин отзыва">
+          <span class="rev-sk" aria-hidden="true"><span class="rev-sk-top"><i class="rev-sk-ava"></i><span><i></i><i></i></span></span><span class="rev-sk-stars"><i></i><i></i><i></i><i></i><i></i></span><span class="rev-sk-lines"><i></i><i></i><i></i><i></i><i></i><i></i></span></span>
+          <img src="assets/reviews/review-06.webp" alt="Отзыв на Авито" loading="lazy" decoding="async"
+               onload="this.parentNode.classList.add('has')" onerror="this.remove()">
+        </div>
+        <button type="button" class="rev-open" aria-label="Открыть отзыв целиком"><span class="rev-more">Читать целиком</span></button>
+      </figure>
+      <figure class="rev">
+        <div class="rev-shot ph" data-slot="review-07.webp · скрин отзыва">
+          <span class="rev-sk" aria-hidden="true"><span class="rev-sk-top"><i class="rev-sk-ava"></i><span><i></i><i></i></span></span><span class="rev-sk-stars"><i></i><i></i><i></i><i></i><i></i></span><span class="rev-sk-lines"><i></i><i></i><i></i><i></i><i></i><i></i></span></span>
+          <img src="assets/reviews/review-07.webp" alt="Отзыв на Авито" loading="lazy" decoding="async"
+               onload="this.parentNode.classList.add('has')" onerror="this.remove()">
+        </div>
+        <button type="button" class="rev-open" aria-label="Открыть отзыв целиком"><span class="rev-more">Читать целиком</span></button>
+      </figure>
+      <figure class="rev">
+        <div class="rev-shot ph" data-slot="review-08.webp · скрин отзыва">
+          <span class="rev-sk" aria-hidden="true"><span class="rev-sk-top"><i class="rev-sk-ava"></i><span><i></i><i></i></span></span><span class="rev-sk-stars"><i></i><i></i><i></i><i></i><i></i></span><span class="rev-sk-lines"><i></i><i></i><i></i><i></i><i></i><i></i></span></span>
+          <img src="assets/reviews/review-08.webp" alt="Отзыв на Авито" loading="lazy" decoding="async"
+               onload="this.parentNode.classList.add('has')" onerror="this.remove()">
+        </div>
+        <button type="button" class="rev-open" aria-label="Открыть отзыв целиком"><span class="rev-more">Читать целиком</span></button>
+      </figure>
+    </div>
+  </div>
+  <div class="wrap cases-ctl rev-ctl">
+    <div class="cases-prog" aria-hidden="true"><u></u></div>
+    <button type="button" class="gal-b" data-rev="-1" aria-label="Предыдущие отзывы"><svg class="ic"><use href="#i-arrow-l"/></svg></button>
+    <button type="button" class="gal-b" data-rev="1" aria-label="Следующие отзывы"><svg class="ic"><use href="#i-arrow-r"/></svg></button>
+  </div>
+</section>
+
+<!-- ═══════════ ЦЕНЫ ═══════════
+     Цены из брифа: группа 1 200, пара 1 400, индивидуально 1 900 ₽ за час.
+     Те же числа стоят в микроразметке в шапке — правишь здесь, поправь там.
+-->
+<section class="sec price-sec" id="price">
+  <div class="wrap">
+    <h2 class="h2 sec-head up">Выберите формат.<br>Цена не&nbsp;вырастет до&nbsp;конца курса</h2>
+    <p class="lead up" data-delay=".08" style="margin-top:18px;max-width:48ch">
+      Цена фиксируется в&nbsp;день записи. Материалы, записи уроков и&nbsp;связь со&nbsp;мной
+      между занятиями входят в&nbsp;любой формат.
+    </p>
+    <div class="plans stagger">
+      <article class="plan" data-price="1200" data-format="Мини-группа">
+        <div class="plan-name">Мини-группа <em class="plan-save">−37%</em></div>
+        <div class="plan-price"><b>1&nbsp;200</b> <small>₽ за&nbsp;час</small></div>
+        <div class="plan-sub">с&nbsp;ученика</div>
+        <ul>
+          <li>5–7&nbsp;человек одного уровня</li>
+          <li>Соревновательный азарт: «недоучить» не&nbsp;выйдет</li>
+          <li>Учимся на&nbsp;своих и&nbsp;на&nbsp;чужих ошибках</li>
+          <li>Дискуссии и&nbsp;квизы, как&nbsp;в&nbsp;вузе</li>
+        </ul>
+        <button type="button" class="btn btn-ghost" data-pick><span>Выбрать</span></button>
+      </article>
+      <article class="plan" data-price="1400" data-format="Вдвоём">
+        <div class="plan-name">Вдвоём <em class="plan-save">−26%</em></div>
+        <div class="plan-price"><b>1&nbsp;400</b> <small>₽ за&nbsp;час</small></div>
+        <div class="plan-sub">с&nbsp;ученика</div>
+        <ul>
+          <li>Пару подбираю по&nbsp;уровню знаний</li>
+          <li>Внимания почти как&nbsp;на&nbsp;индивидуальном</li>
+          <li>Есть с&nbsp;кем сравнить результат</li>
+        </ul>
+        <button type="button" class="btn btn-ghost" data-pick><span>Выбрать</span></button>
+      </article>
+      <article class="plan hot" data-price="1900" data-format="Индивидуально">
+        <div class="plan-name">Индивидуально</div>
+        <div class="plan-price"><b>1&nbsp;900</b> <small>₽ за&nbsp;час</small></div>
+        <div class="plan-sub">занятие один на&nbsp;один</div>
+        <ul>
+          <li>Программа под ваш уровень и&nbsp;цель</li>
+          <li>Темп и&nbsp;расписание под ученика</li>
+          <li>Срочная подготовка перед экзаменом</li>
+        </ul>
+        <button type="button" class="btn btn-ink" data-pick><span>Выбрать</span></button>
+      </article>
+    </div>
+    <div class="gifts up">
+      <span class="mono">Во&nbsp;всех форматах</span>
+      <span><b>Пробный урок</b> бесплатно</span>
+      <span><b>Записи уроков</b> и&nbsp;готовые материалы</span>
+      <span><b>В&nbsp;конце года</b> бесплатное занятие «Быстрое повторение всего курса»</span>
+    </div>
+    <p class="plans-note up">Расписание подбираем на&nbsp;пробном уроке.</p>
+  </div>
+</section>
+
+<!-- ═══════════ ПРОБНЫЙ УРОК И ЗАЯВКА ═══════════
+     Квиз из пяти нажатий собирает готовое сообщение. Сайт ничего не
+     хранит и никуда не отправляет сам: текст открывается в мессенджере,
+     который человек выбрал, и отправляет его он. Поэтому ни сервера,
+     ни согласия на обработку данных здесь не нужно. -->
+<section class="sec trial-sec" id="trial">
+  <div class="wrap">
+    <div class="trial">
+      <div class="trial-txt">
+        <h2 class="h2 up">Первый урок<br>бесплатно</h2>
+        <p class="lead up" data-delay=".08">Чтобы понять, откуда стартуем и&nbsp;сколько баллов реально добрать к&nbsp;экзамену.</p>
+        <ol class="trial-steps stagger">
+          <li><b>Диагностика</b><span>Смотрим, что&nbsp;уже знаете и&nbsp;где теряются баллы.</span></li>
+          <li><b>Темы, которые принесут баллы</b><span>Разбираем то, что&nbsp;точно будет на&nbsp;экзамене и&nbsp;может добавить до&nbsp;8&nbsp;баллов.</span></li>
+          <li><b>План подготовки</b><span>Выбираем стратегию под ваш целевой балл и&nbsp;оставшееся время.</span></li>
+        </ol>
+      </div>
+
+      <div class="quiz up" data-delay=".1" id="contact">
+        <div class="quiz-top"><b>Заявка за&nbsp;минуту</b><span class="quiz-n">1&nbsp;из&nbsp;6</span></div>
+        <div class="quiz-prog" aria-hidden="true"><u></u></div>
+        <div class="qz">
+          <div class="qz-step on" role="group" aria-labelledby="qz1" data-key="who">
+            <p class="qz-q" id="qz1">Кто пишет?</p>
+            <div class="qz-opts">
+              <button type="button" class="qz-o" data-v="Я родитель, пишу насчёт подготовки ребёнка.">Родитель</button>
+              <button type="button" class="qz-o" data-v="Я ученик, готовлюсь к экзамену.">Ученик</button>
+            </div>
+          </div>
+          <div class="qz-step" role="group" aria-labelledby="qz2" data-key="exam">
+            <p class="qz-q" id="qz2">К&nbsp;какому экзамену готовимся?</p>
+            <div class="qz-opts">
+              <button type="button" class="qz-o" data-v="ОГЭ, 9 класс">ОГЭ, 9&nbsp;класс</button>
+              <button type="button" class="qz-o" data-v="ЕГЭ, 11 класс">ЕГЭ, 11&nbsp;класс</button>
+              <button type="button" class="qz-o" data-v="10 класс, заранее к ЕГЭ">10&nbsp;класс, заранее к&nbsp;ЕГЭ</button>
+            </div>
+          </div>
+          <div class="qz-step" role="group" aria-labelledby="qz3" data-key="subj">
+            <p class="qz-q" id="qz3">Какой предмет?</p>
+            <div class="qz-opts">
+              <button type="button" class="qz-o" data-v="история">История</button>
+              <button type="button" class="qz-o" data-v="обществознание">Обществознание</button>
+              <button type="button" class="qz-o" data-v="история и обществознание">Оба предмета</button>
+            </div>
+          </div>
+          <div class="qz-step" role="group" aria-labelledby="qz4" data-key="level">
+            <p class="qz-q" id="qz4">Где вы сейчас?</p>
+            <div class="qz-opts">
+              <button type="button" class="qz-o" data-v="начинаем с нуля">Начинаем с&nbsp;нуля</button>
+              <button type="button" class="qz-o" data-v="база есть, нужно больше баллов">База есть, нужно больше баллов</button>
+              <button type="button" class="qz-o" data-v="до экзамена меньше двух месяцев">До&nbsp;экзамена меньше двух месяцев</button>
+            </div>
+          </div>
+          <div class="qz-step" role="group" aria-labelledby="qz5" data-key="format">
+            <p class="qz-q" id="qz5">Какой формат ближе?</p>
+            <div class="qz-opts qz-opts-2">
+              <button type="button" class="qz-o" data-v="индивидуально">Индивидуально</button>
+              <button type="button" class="qz-o" data-v="вдвоём">Вдвоём</button>
+              <button type="button" class="qz-o" data-v="мини-группа">Мини-группа</button>
+              <button type="button" class="qz-o" data-v="пока не выбрали, нужен совет">Помогите выбрать</button>
+            </div>
+          </div>
+          <div class="qz-step qz-last" role="group" aria-labelledby="qz6" data-key="name">
+            <p class="qz-q" id="qz6">Сообщение готово</p>
+            <div class="qz-field">
+              <label for="qz-name">Как&nbsp;к&nbsp;вам обращаться</label>
+              <input id="qz-name" type="text" autocomplete="given-name" maxlength="40" placeholder="Например, Анна">
+            </div>
+            <div class="qz-msg" aria-live="polite"></div>
+            <div class="qz-send">
+              <a class="btn btn-ink" data-send="telegram" href="#"><svg class="ic"><use href="#i-tg"/></svg><span>Telegram</span></a>
+              <a class="btn btn-ghost" data-send="whatsapp" href="#"><svg class="ic"><use href="#i-wa"/></svg><span>WhatsApp</span></a>
+            </div>
+            <button type="button" class="qz-copy"><svg class="ic"><use href="#i-copy"/></svg>Скопировать текст</button>
+          </div>
+        </div>
+        <button type="button" class="qz-back" hidden><svg class="ic"><use href="#i-arrow-l"/></svg>Назад</button>
+        <p class="qz-note">Заявка откроется в&nbsp;мессенджере, отправите её вы сами. На&nbsp;сайте ничего не&nbsp;сохраняется.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ ВОПРОСЫ ═══════════
+     На <details>: раскрывается и&nbsp;без&nbsp;скрипта, находится поиском по
+     странице. Скрипт только добавляет плавность. -->
+<section class="sec" id="faq">
+  <div class="wrap">
+    <h2 class="h2 sec-head up">Вопросы, которые<br>задают родители</h2>
+    <div class="qa">
+      <details class="q up">
+        <summary>Когда лучше начинать подготовку?</summary>
+        <div class="q-a"><p>Спокойнее всего за&nbsp;год–полтора до&nbsp;экзамена: успеваем пройти теорию и&nbsp;отработать
+          вторую часть. Но&nbsp;начать можно в&nbsp;любой момент, план подстраивается под оставшееся время.</p></div>
+      </details>
+      <details class="q up">
+        <summary>До&nbsp;экзамена месяц. Есть смысл?</summary>
+        <div class="q-a"><p>Есть. Ко&nbsp;мне приходят и&nbsp;за&nbsp;месяц, и&nbsp;за&nbsp;две недели. Берём темы, которые приносят
+          больше всего баллов, и&nbsp;отрабатываем задания, на&nbsp;которых их обычно теряют.</p></div>
+      </details>
+      <details class="q up">
+        <summary>Вы гарантируете результат?</summary>
+        <div class="q-a"><p>Балл на&nbsp;экзамене зависит и&nbsp;от&nbsp;ученика: приходит ли он на&nbsp;уроки и&nbsp;делает ли домашние
+          задания. С&nbsp;моей стороны&nbsp;— система, которая работает: средний балл моих учеников 85.
+          Цель первого месяца&nbsp;— плюс 15&nbsp;баллов к&nbsp;стартовому результату, и&nbsp;её мы замеряем.</p></div>
+      </details>
+      <details class="q up">
+        <summary>Можно готовиться только к&nbsp;одному предмету?</summary>
+        <div class="q-a"><p>Да. Только история, только обществознание или&nbsp;оба экзамена сразу&nbsp;— программа
+          строится под ваши экзамены.</p></div>
+      </details>
+      <details class="q up">
+        <summary>Как&nbsp;подбирается группа или&nbsp;пара?</summary>
+        <div class="q-a"><p>По&nbsp;уровню знаний и&nbsp;цели. В&nbsp;мини-группе 5–7&nbsp;человек: никто не&nbsp;отстаёт и&nbsp;никому
+          не&nbsp;скучно, а&nbsp;стесняться в&nbsp;маленькой группе некого.</p></div>
+      </details>
+      <details class="q up">
+        <summary>Как&nbsp;родители узнают, что&nbsp;всё идёт по&nbsp;плану?</summary>
+        <div class="q-a"><p>Я на&nbsp;связи с&nbsp;родителями и&nbsp;учениками и&nbsp;между уроками. А&nbsp;прогресс видно в&nbsp;баллах:
+          мы регулярно решаем задания в&nbsp;формате экзамена.</p></div>
+      </details>
+      <details class="q up">
+        <summary>Цена может вырасти в&nbsp;середине года?</summary>
+        <div class="q-a"><p>Нет. Цена фиксируется в&nbsp;день записи и&nbsp;не&nbsp;меняется до&nbsp;конца обучения.</p></div>
+      </details>
+      <details class="q up">
+        <summary>Что&nbsp;будет на&nbsp;пробном уроке?</summary>
+        <div class="q-a"><p>Диагностика, разбор тем, которые точно будут на&nbsp;экзамене и&nbsp;могут добавить до&nbsp;8&nbsp;баллов,
+          и&nbsp;план подготовки под ваш целевой балл. Урок бесплатный и&nbsp;ни&nbsp;к&nbsp;чему не&nbsp;обязывает.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ ФИНАЛ ═══════════
+     Один экран, одна мысль, одно действие. -->
+<section class="sec final">
+  <div class="wrap">
+    <h2 class="h2 up">После пробного урока будет понятно,<br>как&nbsp;выйти на&nbsp;ваш балл</h2>
+    <p class="lead up" data-delay=".08">
+      Первый урок бесплатный. В&nbsp;мини-группе не&nbsp;больше семи человек,
+      поэтому набор в&nbsp;группы ограничен.
+    </p>
+    <div class="final-cta up" data-delay=".16">
+      <a href="#trial" class="btn btn-lime btn-lg"><span>Пробный урок бесплатно</span></a>
+      <button type="button" class="final-link" data-ask>Сначала задам вопрос</button>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══════════ ПОДВАЛ ═══════════ -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <a href="#top" class="logo"><i></i>Оксана Олеговна</a>
+        <p class="foot-about">Репетитор по&nbsp;истории и&nbsp;обществознанию. Готовлю к&nbsp;ОГЭ и&nbsp;ЕГЭ
+          индивидуально, вдвоём и&nbsp;в&nbsp;мини-группах.</p>
+      </div>
+      <div class="foot-col">
+        <b>Разделы</b>
+        <a href="#about">Обо мне</a>
+        <a href="#awards">Награды</a>
+        <a href="#learning">Как&nbsp;проходит обучение</a>
+        <a href="#cases">Истории учеников</a>
+        <a href="#reviews">Отзывы</a>
+        <a href="#price">Цены</a>
+        <a href="#faq">Вопросы</a>
+      </div>
+      <div class="foot-col">
+        <b>Связь</b>
+        <a data-contact="telegram" href="#">Telegram</a>
+        <a data-contact="whatsapp" href="#">WhatsApp</a>
+        <a data-contact="phone" href="#">Позвонить</a>
+        <a data-contact="avito" href="#">Авито</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026&nbsp;Оксана Олеговна</span>
+      <span>Информация на&nbsp;сайте не&nbsp;является публичной офертой</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Нижнее меню на телефоне: главные разделы под большим пальцем, как
+     в приложении. Посередине — запись на пробный урок, справа — написать
+     в мессенджер. Подложка едет к разделу, который сейчас на экране. -->
+<nav class="tabbar" aria-label="Главные разделы">
+  <i class="tab-glow" aria-hidden="true"></i>
+  <a href="#about" class="tab" data-tab="about"><svg class="ic"><use href="#i-user"/></svg><span>Обо мне</span></a>
+  <a href="#reviews" class="tab" data-tab="reviews"><svg class="ic"><use href="#i-star"/></svg><span>Отзывы</span></a>
+  <a href="#trial" class="tab tab-main" data-tab="trial"><b><svg class="ic"><use href="#i-cal"/></svg></b><span>Запись</span></a>
+  <a href="#price" class="tab" data-tab="price"><svg class="ic"><use href="#i-wallet"/></svg><span>Цены</span></a>
+  <button type="button" class="tab" data-ask><svg class="ic"><use href="#i-chat"/></svg><span>Связь</span></button>
+</nav>
+
+<!-- Просмотр фото и документов на весь экран -->
+<div class="lb" role="dialog" aria-modal="true" aria-label="Просмотр" hidden>
+  <div class="lb-back" data-lb-close></div>
+  <div class="lb-stage">
+    <div class="lb-fig"></div>
+    <div class="lb-info">
+      <em class="lb-meta"></em>
+      <h3 class="h3 lb-title"></h3>
+      <div class="lb-text"></div>
+      <span class="lb-count"></span>
+    </div>
+  </div>
+  <button type="button" class="lb-btn lb-x" data-lb-close aria-label="Закрыть"><svg class="ic"><use href="#i-x"/></svg></button>
+  <button type="button" class="lb-btn lb-prev" aria-label="Предыдущий"><svg class="ic"><use href="#i-arrow-l"/></svg></button>
+  <button type="button" class="lb-btn lb-next" aria-label="Следующий"><svg class="ic"><use href="#i-arrow-r"/></svg></button>
+</div>
+
+<!-- Вопрос в мессенджер -->
+<div class="ask" role="dialog" aria-modal="true" aria-labelledby="ask-t" hidden>
+  <div class="ask-back" data-ask-close></div>
+  <div class="ask-card">
+    <button type="button" class="ask-x" data-ask-close aria-label="Закрыть"><svg class="ic"><use href="#i-x"/></svg></button>
+    <b class="ask-t" id="ask-t">Задайте вопрос</b>
+    <p>Отвечаю быстро. Удобнее всего в&nbsp;мессенджере.</p>
+    <div class="ask-list">
+      <a class="ask-a" data-contact="telegram" href="#"><span class="ask-i"><svg class="ic"><use href="#i-tg"/></svg></span><b>Telegram</b><svg class="ic ask-go"><use href="#i-arrow-r"/></svg></a>
+      <a class="ask-a" data-contact="whatsapp" href="#"><span class="ask-i"><svg class="ic"><use href="#i-wa"/></svg></span><b>WhatsApp</b><svg class="ic ask-go"><use href="#i-arrow-r"/></svg></a>
+      <a class="ask-a" data-contact="phone" href="#"><span class="ask-i"><svg class="ic"><use href="#i-phone"/></svg></span><b>Позвонить</b><svg class="ic ask-go"><use href="#i-arrow-r"/></svg></a>
+    </div>
+  </div>
+</div>
+
+<div class="toast" role="status" aria-live="polite"></div>
+
+<!-- Контакты — единственное место, где их нужно вписать. Шапка, заявка,
+     окно вопроса и подвал берут их отсюда.
+     telegram — имя пользователя без @; whatsapp и phone — только цифры,
+     начиная с 7; avito — полная ссылка на профиль с отзывами. -->
+<script>
+  window.CONTACTS = {
+    telegram: "",
+    whatsapp: "",
+    phone: "",
+    avito: ""
+  };
+</script>
+<script src="assets/js/core.js?v=10" defer></script>
+<script src="assets/js/sections.js?v=10" defer></script>
+</body>
+</html>

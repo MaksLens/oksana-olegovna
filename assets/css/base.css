@@ -1,0 +1,506 @@
+/* =============================================================
+   Оксана Олеговна — репетитор по истории и обществознанию.
+   Основа: токены, типографика, шапка, кнопки, первый экран.
+
+   Язык — как у лендинга agent-ai.fun: фирменный цвет живёт
+   акцентом, а не заливкой; лайм — одна искра на экран, не больше.
+   Как только цвет закрывает крупную площадь, страница дешевеет.
+   ============================================================= */
+
+:root {
+  /* цвета */
+  --ink:        #0E1220;
+  --ink-2:      #4A5163;
+  /* Темнее, чем на agent-ai.fun (#858B9C): мелкие подписи читают родители
+     с телефона, нужен контраст не ниже 4,5:1 к фону. */
+  --ink-3:      #6B7182;
+  --blue:       #3B49DF;
+  --blue-dark:  #2A35B8;
+  --lime:       #C9F24D;
+  --bg:         #F5F6F8;
+  --surface:    #FFFFFF;
+  --line:       rgba(14,18,32,.08);
+  --line-2:     rgba(14,18,32,.14);
+
+  /* сетка */
+  --wrap: 1240px;
+  --gut: clamp(20px, 4vw, 40px);
+
+  /* скругления */
+  --r-s: 12px;
+  --r-m: 20px;
+  --r-l: 28px;
+  --r-xl: 40px;
+  --r-pill: 999px;
+
+  /* Одна кривая на весь сайт. Разнобой в тайминге читается как
+     неаккуратность даже там, где человек не может её назвать. */
+  --ease: cubic-bezier(.22, 1, .36, 1);
+  --ease-soft: cubic-bezier(.4, 0, .2, 1);
+}
+
+* { box-sizing: border-box }
+/* Атрибут hidden сильнее любого display из правил ниже: иначе кнопка
+   «Назад» на первом шаге заявки оставалась видимой. */
+[hidden] { display: none !important }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth }
+/* Якоря не должны прятать заголовок секции под плавающей шапкой */
+section[id], [id="contact"] { scroll-margin-top: 92px }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Onest, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 17px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+/* clip, а не hidden: hidden делает body прокручиваемым контейнером,
+   и липкие блоки (колода карточек, лента историй) перестают липнуть. */
+@supports (overflow: clip) { body { overflow-x: clip } }
+
+a { color: inherit; text-decoration: none }
+img { max-width: 100%; display: block }
+button { font: inherit; color: inherit }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap }
+
+.ic {
+  width: 20px; height: 20px; flex: 0 0 auto;
+  fill: none; stroke: currentColor; stroke-width: 1.7;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+
+:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 6px }
+
+.wrap {
+  width: 100%;
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 0 var(--gut);
+}
+
+/* ─── Типографика ────────────────────────────────────────────
+   Крупный кегль, средний вес, отрицательное межбуквенное и
+   межстрочное меньше единицы. Строки встают плотным блоком —
+   именно это читается как «дорого». */
+
+/* Кегль подобран по самой длинной строке «Мои ученики сдают»: она должна
+   вставать в колонку целиком от 360 до 1440 px, иначе заголовок из
+   четырёх строк рассыпается на шесть. Замер: ширина строки ≈ 9 кеглей. */
+.h1 {
+  font-size: clamp(34px, 5.2vw, 66px);
+  font-weight: 500;
+  line-height: .96;
+  letter-spacing: -.035em;
+  margin: 0;
+}
+
+.h2 {
+  font-size: clamp(30px, 4.6vw, 58px);
+  font-weight: 500;
+  line-height: 1.0;
+  letter-spacing: -.03em;
+  margin: 0;
+}
+
+.h3 {
+  font-size: clamp(20px, 2.2vw, 26px);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -.02em;
+  margin: 0;
+}
+
+.lead {
+  font-size: clamp(16px, 1.5vw, 20px);
+  line-height: 1.5;
+  color: var(--ink-2);
+  margin: 0;
+  max-width: 34ch;
+}
+
+.mono {
+  font-size: 12px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  font-weight: 500;
+}
+
+/* ─── Шапка ──────────────────────────────────────────────────
+   Плавающая пилюля со стеклом: под ней движутся световые пятна,
+   и размытие превращает их в глубину, а не в помеху. */
+
+.nav-wrap {
+  position: fixed;
+  top: 14px; left: 0; right: 0;
+  z-index: 50;
+  padding: 0 var(--gut);
+  pointer-events: none;
+}
+
+.nav {
+  max-width: var(--wrap);
+  margin: 0 auto;
+  height: 64px;
+  padding: 0 10px 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  border-radius: var(--r-pill);
+  background: rgba(255,255,255,.72);
+  border: 1px solid rgba(255,255,255,.9);
+  box-shadow: 0 8px 30px -12px rgba(14,18,32,.16);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  backdrop-filter: blur(20px) saturate(160%);
+  pointer-events: auto;
+  transition: transform .9s var(--ease), opacity .6s var(--ease);
+}
+html.js .nav { transform: translateY(-120%); opacity: 0 }
+html.js .nav.in { transform: none; opacity: 1 }
+
+.logo {
+  font-size: 18px; font-weight: 600; letter-spacing: -.025em;
+  display: flex; align-items: center; gap: 9px;
+  white-space: nowrap;
+}
+.logo i {
+  width: 9px; height: 9px; border-radius: 50%;
+  background: var(--lime); display: block;
+  box-shadow: 0 0 0 4px rgba(201,242,77,.25);
+}
+
+.nav-menu { display: flex; gap: 26px; margin-left: 8px }
+.nav-menu a {
+  font-size: 14.5px; color: var(--ink-2); font-weight: 500;
+  position: relative; padding: 4px 0;
+  transition: color .3s var(--ease-soft);
+}
+.nav-menu a::after {
+  content: ''; position: absolute; left: 0; right: 100%; bottom: 0;
+  height: 1.5px; background: var(--ink);
+  transition: right .4s var(--ease);
+}
+.nav-menu a:hover, .nav-menu a.on { color: var(--ink) }
+.nav-menu a:hover::after, .nav-menu a.on::after { right: 0 }
+
+.nav-cta { margin-left: auto; display: flex; align-items: center; gap: 8px }
+
+/* ─── Кнопки ─────────────────────────────────────────────────
+   Пилюли. Внутри — светлое пятно, идущее за курсором: оно
+   даёт ощущение отклика раньше, чем человек успевает нажать. */
+
+.btn {
+  position: relative;
+  display: inline-flex; align-items: center; gap: 9px;
+  height: 48px; padding: 0 24px;
+  border-radius: var(--r-pill);
+  font-size: 15px; font-weight: 600; letter-spacing: -.01em;
+  border: none; cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: transform .5s var(--ease), box-shadow .5s var(--ease);
+  will-change: transform;
+}
+.btn span, .btn .ic { position: relative; z-index: 2 }
+.btn::before {
+  content: ''; position: absolute; z-index: 1;
+  width: 160px; height: 160px; border-radius: 50%;
+  left: var(--mx, 50%); top: var(--my, 50%);
+  transform: translate(-50%, -50%) scale(0);
+  background: radial-gradient(circle, rgba(255,255,255,.55), transparent 70%);
+  transition: transform .6s var(--ease), opacity .6s var(--ease);
+  opacity: 0;
+}
+.btn:hover::before { transform: translate(-50%, -50%) scale(1); opacity: 1 }
+.btn:active { transform: scale(.98) }
+
+.btn-lime { background: var(--lime); color: var(--ink) }
+.btn-lime:hover { box-shadow: 0 14px 34px -12px rgba(201,242,77,.9) }
+
+.btn-ink { background: var(--ink); color: #fff }
+.btn-ink:hover { box-shadow: 0 14px 34px -14px rgba(14,18,32,.6) }
+.btn-ink::before { background: radial-gradient(circle, rgba(255,255,255,.22), transparent 70%) }
+
+.btn-ghost {
+  background: transparent; color: var(--ink);
+  box-shadow: inset 0 0 0 1.5px var(--line-2);
+}
+.btn-ghost:hover { box-shadow: inset 0 0 0 1.5px var(--ink) }
+
+.btn-lg { height: 56px; padding: 0 30px; font-size: 16px }
+
+/* ─── Первый экран ───────────────────────────────────────────── */
+
+.hero {
+  position: relative;
+  min-height: 100svh;
+  padding: 118px 0 48px;
+  display: flex; flex-direction: column; justify-content: center;
+  overflow: hidden;
+}
+
+/* Световые пятна живут в фоне. Слева стоит заголовок — туда они не
+   заходят: цветное пятно под текстом убивает читаемость быстрее
+   любого шрифта. Справа они подсвечивают портрет. */
+#goo {
+  position: absolute; inset: -10%;
+  z-index: 0; pointer-events: none;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, transparent 36%, #000 62%, #000 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, transparent 36%, #000 62%, #000 100%);
+}
+.hero .wrap { position: relative; z-index: 2 }
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr);
+  gap: 40px; align-items: center;
+}
+
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 9px;
+  min-height: 34px; padding: 6px 15px 6px 12px;
+  border-radius: var(--r-pill);
+  background: rgba(255,255,255,.8);
+  border: 1px solid var(--line);
+  font-size: 13px; font-weight: 500; color: var(--ink-2);
+  margin-bottom: 26px;
+}
+/* Точка пульсирует по делу: набор действительно открыт */
+.eyebrow i {
+  width: 7px; height: 7px; border-radius: 50%; background: var(--lime); flex: 0 0 auto;
+  box-shadow: 0 0 0 3px rgba(201,242,77,.3);
+  animation: pulse 2.6s var(--ease-soft) infinite;
+}
+@keyframes pulse {
+  0%,100% { box-shadow: 0 0 0 3px rgba(201,242,77,.3) }
+  50%     { box-shadow: 0 0 0 7px rgba(201,242,77,0) }
+}
+
+/* Заголовок собирается по словам. Слово выезжает снизу из-под маски
+   и на подлёте теряет размытие — движение читается как плавное.
+   Маска режет хвосты у «р», «у», «д» — даём запас снизу и снимаем его
+   отрицательным отступом, чтобы строки не разъезжались. */
+.reveal { display: block; overflow: hidden; padding-bottom: .14em; margin-bottom: -.14em }
+.reveal > span {
+  display: inline-block;
+  transform: translateY(105%);
+  filter: blur(6px);
+  opacity: 0;
+  transition: transform 1.05s var(--ease), filter .9s var(--ease), opacity .7s var(--ease);
+}
+.reveal.in > span { transform: none; filter: none; opacity: 1 }
+
+.hero-lead { margin-top: 22px; max-width: 40ch }
+.hero-cta { display: flex; gap: 12px; margin-top: 30px; flex-wrap: wrap }
+
+.hero-note {
+  display: flex; gap: 8px 22px; margin-top: 26px;
+  font-size: 13.5px; color: var(--ink-3); flex-wrap: wrap;
+}
+.hero-note span { display: flex; align-items: center; gap: 7px }
+.hero-rev { color: var(--ink-2); border-bottom: 1px solid var(--line-2); transition: color .3s var(--ease-soft), border-color .3s var(--ease-soft) }
+.hero-rev:hover { color: var(--ink); border-color: var(--ink) }
+.hero-note span::before {
+  content: ''; width: 4px; height: 4px; border-radius: 50%;
+  background: var(--ink-3); opacity: .5;
+}
+
+/* Появление всего, что ниже заголовка */
+.up { transition: opacity .9s var(--ease), transform 1.05s var(--ease) }
+html.js .up { opacity: 0; transform: translateY(26px) }
+html.js .up.in { opacity: 1; transform: none }
+
+/* ─── Портрет ────────────────────────────────────────────────
+   Карточка с фотографией и три «стеклянные» плашки поверх. Плашки
+   стоят на разной глубине: при наклоне за курсором они сдвигаются
+   сильнее самого фото, и портрет перестаёт быть наклейкой. */
+
+.por-stage {
+  position: relative;
+  display: flex; justify-content: center; align-items: center;
+  perspective: 1400px;
+}
+.por {
+  position: relative; margin: 0;
+  /* Размер от высоты окна: портрет целиком в первом экране на любом ноутбуке */
+  height: min(600px, 68vh);
+  aspect-ratio: 4 / 5;
+  transform-style: preserve-3d;
+  transition: transform .9s var(--ease-soft);
+}
+/* Свечение под портретом — фирменное, вместо серой тени */
+.por::after {
+  content: ''; position: absolute; z-index: -1;
+  left: 10%; right: 10%; bottom: -5%; height: 24%;
+  background: radial-gradient(50% 60% at 50% 50%, rgba(59,73,223,.38), transparent 70%);
+  filter: blur(28px);
+}
+/* Селектор двойной намеренно: у заглушки .ph своё position: relative,
+   и без веса карточка выпадала из рамки портрета в обычный поток. */
+.por .por-card {
+  position: absolute; inset: 0;
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  box-shadow: 0 50px 90px -50px rgba(14,18,32,.55);
+}
+
+.chip {
+  position: absolute; z-index: 3;
+  display: flex; align-items: center; gap: 11px;
+  padding: 9px 18px 9px 9px;
+  border-radius: var(--r-pill);
+  background: rgba(255,255,255,.78);
+  border: 1px solid rgba(255,255,255,.95);
+  box-shadow: 0 18px 40px -18px rgba(14,18,32,.35);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  backdrop-filter: blur(16px) saturate(160%);
+  transform: translateZ(var(--z, 60px));
+  white-space: nowrap;
+}
+.chip-i {
+  width: 38px; height: 38px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--bg); color: var(--ink);
+}
+.chip-i .ic { width: 19px; height: 19px }
+.chip-n {
+  width: 44px; height: 44px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--lime); color: var(--ink);
+  font-size: 17px; font-weight: 600; letter-spacing: -.03em;
+}
+.chip-t { display: flex; flex-direction: column; line-height: 1.2 }
+.chip-t b { font-size: 14px; font-weight: 600; letter-spacing: -.01em }
+.chip-t span { font-size: 12.5px; color: var(--ink-2) }
+
+.chip-a { left: -9%; top: 9% }
+.chip-b { right: -11%; top: 47% }
+.chip-c { left: -6%; bottom: 8% }
+
+/* Плашки еле заметно дышат, каждая в своём ритме: без этого
+   первый экран на телефоне, где нет курсора, выглядит застывшим. */
+.chip { animation: bob 7s var(--ease-soft) infinite }
+.chip-b { animation-duration: 8.5s; animation-delay: -2s }
+.chip-c { animation-duration: 7.8s; animation-delay: -4s }
+@keyframes bob {
+  0%,100% { translate: 0 0 }
+  50%     { translate: 0 -7px }
+}
+
+/* ─── Заглушки фото ──────────────────────────────────────────
+   Пока настоящего снимка нет, видна мягкая подложка с монограммой.
+   Файл появился — картинка плавно проявляется поверх. В режиме
+   черновика в углу подписано, какой файл сюда ждём. */
+.ph {
+  position: relative;
+  display: grid; place-items: center;
+  background:
+    radial-gradient(120% 80% at 20% 0%, rgba(255,255,255,.7), transparent 60%),
+    linear-gradient(160deg, #E8EBF3, #D9DFEC);
+  overflow: hidden;
+}
+.ph img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover;
+  opacity: 0; transition: opacity .8s var(--ease-soft);
+}
+.ph.has img { opacity: 1 }
+.ph-mono {
+  font-size: clamp(64px, 9vw, 128px); font-weight: 500;
+  letter-spacing: -.06em; line-height: 1;
+  color: rgba(255,255,255,.95);
+  text-shadow: 0 20px 50px rgba(59,73,223,.18);
+  user-select: none;
+}
+.ph.has .ph-mono { visibility: hidden }
+html.draft .ph:not(.has)::after {
+  content: attr(data-slot);
+  position: absolute; left: 12px; bottom: 12px; z-index: 2;
+  max-width: calc(100% - 24px);
+  font-size: 11px; font-weight: 600; letter-spacing: .02em;
+  padding: 4px 9px; border-radius: var(--r-pill);
+  background: #FFF1C9; color: #6B4E00; border: 1px dashed #E2BE5A;
+}
+
+/* Пометки черновика: примеры, пустые поля, не вписанные контакты */
+.draft-tag, .draft-fill { display: none }
+html.draft .draft-tag {
+  display: inline-flex; align-self: flex-start;
+  font-size: 11px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase;
+  padding: 4px 9px; border-radius: var(--r-pill);
+  background: #FFF1C9; color: #6B4E00; border: 1px dashed #E2BE5A;
+}
+html.draft .draft-fill { display: inline; background: #FFF1C9; color: #6B4E00; border-radius: 4px }
+
+/* ─── Пятно за курсором ──────────────────────────────────────
+   Едва заметное. Стоит его усилить — страница превращается в дискотеку. */
+#spot {
+  position: fixed; z-index: 1; pointer-events: none;
+  width: 460px; height: 460px; border-radius: 50%;
+  left: 0; top: 0;
+  background: radial-gradient(circle, rgba(201,242,77,.16), transparent 66%);
+  transform: translate(-50%, -50%);
+  opacity: 0; transition: opacity .8s var(--ease-soft);
+  mix-blend-mode: multiply;
+}
+
+/* ─── Планшет и телефон ──────────────────────────────────────── */
+
+@media (max-width: 1100px) {
+  .nav-menu { gap: 18px }
+  .chip-a { left: -4% }
+  .chip-b { right: -5% }
+}
+
+@media (max-width: 980px) {
+  .hero-grid { grid-template-columns: minmax(0, 1fr); gap: 56px }
+  .lead { max-width: none }
+  .nav-menu { display: none }
+  .hero { padding-top: 120px; min-height: auto }
+  /* Под текстом пятна идут снизу, где стоит портрет */
+  #goo {
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, transparent 38%, #000 70%);
+    mask-image: linear-gradient(180deg, transparent 0%, transparent 38%, #000 70%);
+  }
+  .por { height: auto; width: min(460px, 82%) }
+  .chip-a { left: -8%; top: 8% }
+  .chip-b { right: -10% }
+  .chip-c { left: -8% }
+}
+
+@media (max-width: 560px) {
+  .btn { height: 46px; padding: 0 20px; font-size: 14.5px }
+  .btn-lg { height: 52px; padding: 0 24px; font-size: 15px }
+  .hero-cta .btn { flex: 1 1 auto; justify-content: center }
+
+  .nav { padding: 0 8px 0 18px; gap: 12px; height: 58px }
+  .logo { font-size: 16px }
+  .nav-cta .btn { height: 40px; padding: 0 16px; font-size: 14px }
+
+  .por { width: 78% }
+  .chip { padding: 7px 13px 7px 7px; gap: 8px }
+  .chip-i { width: 30px; height: 30px }
+  .chip-i .ic { width: 16px; height: 16px }
+  .chip-n { width: 34px; height: 34px; font-size: 14px }
+  .chip-t b { font-size: 12.5px }
+  .chip-t span { font-size: 11px }
+  .chip-a { left: -12%; top: 6% }
+  .chip-b { right: -14%; top: 50% }
+  .chip-c { left: -12%; bottom: 6% }
+}
+
+/* Страховка от зависших переходов. Если вкладку открыли в фоне,
+   браузер не проигрывает переходы, и блок может остаться в начальном
+   состоянии навсегда. Класс inst ставится скриптом блокам, показанным
+   в фоне: они сразу встают в конечный вид, без анимации. */
+.inst, .inst > span, .inst > * { transition: none !important }
+
+/* Уважение к настройке «уменьшить движение»: оставляем статику */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto }
+  *, *::before, *::after { animation: none !important; transition-duration: .01ms !important }
+  .reveal > span, .up, .stagger > * { opacity: 1 !important; transform: none !important; filter: none !important }
+}
