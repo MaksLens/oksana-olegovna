@@ -165,7 +165,7 @@
   // активному пункту. Пока открыта клавиатура, меню прячется.
   var tabbar = document.querySelector(".tabbar");
   var tabs = tabbar ? [].slice.call(tabbar.querySelectorAll(".tab")) : [];
-  var tabZones = { about: ["about", "awards"], reviews: ["cases", "reviews"], trial: ["trial"], price: ["price"] };
+  var tabZones = { about: ["about", "path", "awards", "publications"], reviews: ["cases", "reviews"], trial: ["trial"], price: ["price"] };
   var tabCur = null;
   function paintTabs() {
     if (!tabbar) return;

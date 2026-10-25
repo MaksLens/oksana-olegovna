@@ -615,6 +615,132 @@
     return { open: open, isOpen: function () { return isOpen; } };
   })();
 
+  // ── Мой путь ────────────────────────────────────────────────
+  // Слева крупный этап, справа главы. Этап меняется, когда начало главы
+  // проходит черту на 55% высоты окна; буквы старого слова уезжают вверх,
+  // нового — въезжают снизу, каждая чуть позже соседней. Смену слова
+  // запускаем перерасчётом стиля, а не кадром анимации: кадр в фоновой
+  // вкладке придерживается, и слово застряло бы невидимым.
+  var pathSec = document.querySelector(".path-sec");
+  if (pathSec) {
+    var pBody = pathSec.querySelector(".path-body");
+    var pRail = pathSec.querySelector(".path-rail");
+    var pFill = pRail.querySelector("u");
+    var pHead = pRail.querySelector("b");
+    var chs = [].slice.call(pathSec.querySelectorAll(".pch"));
+    var pcs = [].slice.call(pathSec.querySelectorAll(".pc"));
+    var pBig = pathSec.querySelector(".path-big");
+    var pCap = pathSec.querySelector(".path-cap");
+    var pOdo = pathSec.querySelector(".path-n .odo");
+    var pDots = [].slice.call(pathSec.querySelectorAll(".path-dots i"));
+    var pGlow = [].slice.call(pathSec.querySelectorAll(".path-glow i"));
+    var pCur = 0, capT = 0;
+
+    var letters = function (text) {
+      var s = document.createElement("span");
+      Array.from(text).forEach(function (ch, k) {
+        var i = document.createElement("i");
+        i.textContent = ch;
+        i.style.setProperty("--d", k);
+        s.appendChild(i);
+      });
+      return s;
+    };
+    var bigTo = function (text) {
+      [].slice.call(pBig.children).forEach(function (old) {
+        if (old.classList.contains("out")) return;
+        old.className = "out";
+        setTimeout(function () { old.remove(); }, 1100);
+      });
+      var s = letters(text);
+      if (!reduced) s.className = "pre";
+      pBig.appendChild(s);
+      void s.offsetWidth;
+      s.className = "";
+    };
+    var two = function (n) { return (n < 10 ? "0" : "") + n; };
+
+    pBig.textContent = "";
+    pBig.appendChild(letters(chs[0].dataset.big));
+    if (pOdo) { makeOdo(pOdo, 2); setOdo(pOdo, "01"); }
+
+    var setChapter = function (k) {
+      if (k === pCur) return;
+      pCur = k;
+      bigTo(chs[k].dataset.big);
+      if (pOdo) setOdo(pOdo, two(k + 1));
+      pCap.classList.add("out");
+      clearTimeout(capT);
+      capT = setTimeout(function () { pCap.textContent = chs[k].dataset.cap; pCap.classList.remove("out"); }, reduced ? 0 : 260);
+      pDots.forEach(function (d, i) { d.classList.toggle("on", i === k); d.classList.toggle("was", i < k); });
+    };
+
+    watch(function () {
+      var r = pBody.getBoundingClientRect();
+      if (!r.height) return;
+      var now = vh() * .55;
+      var p = clamp01((now - r.top) / r.height);
+      pFill.style.clipPath = "inset(0 0 " + ((1 - p) * 100).toFixed(2) + "% 0)";
+      pHead.style.transform = "translateY(" + (p * pRail.offsetHeight).toFixed(1) + "px)";
+      pHead.style.opacity = p > 0 && p < 1 ? "1" : "0";
+      for (var i = 0; i < pcs.length; i++) {
+        pcs[i].classList.toggle("on", pcs[i].getBoundingClientRect().top + 40 <= now);
+      }
+      var k = 0;
+      for (var j = 0; j < chs.length; j++) if (chs[j].getBoundingClientRect().top <= now) k = j;
+      setChapter(k);
+      // Тёплый свет на учёбе, лайм на школе и ЕГЭ, синий к «сегодня»
+      var g = r.top < vh() && r.bottom > 0 ? (k < 2 ? 0 : k < 4 ? 1 : 2) : -1;
+      pGlow.forEach(function (el, i) { el.style.opacity = i === g ? "1" : "0"; });
+    });
+
+    // Манифест: слова зажигаются по одному, пока абзац идёт по экрану.
+    // Разбиваем в скрипте — для поиска и чтения с экрана текст цельный.
+    var mani = pathSec.querySelector("[data-scrub]");
+    if (mani) {
+      mani.setAttribute("aria-label", mani.textContent.replace(/\s+/g, " ").trim());
+      var words = [];
+      var split = function (node, key, into) {
+        // Делим только по обычным пробелам: неразрывный держит предлог
+        // со словом и в одном огоньке
+        node.textContent.split(/([ \t\n\r]+)/).forEach(function (part) {
+          if (!part) return;
+          if (/^[ \t\n\r]+$/.test(part)) { into.appendChild(document.createTextNode(" ")); return; }
+          var w = document.createElement("span");
+          w.className = key ? "w k" : "w";
+          w.textContent = part;
+          into.appendChild(w);
+          words.push(w);
+        });
+      };
+      var frag = document.createDocumentFragment();
+      [].slice.call(mani.childNodes).forEach(function (n) {
+        if (n.nodeType === 3) split(n, false, frag);
+        else if (n.nodeType === 1) { var em = n.cloneNode(false); split(n, true, em); frag.appendChild(em); }
+      });
+      mani.textContent = "";
+      mani.appendChild(frag);
+      [].slice.call(mani.children).forEach(function (c) { c.setAttribute("aria-hidden", "true"); });
+      watch(function () {
+        var r = mani.getBoundingClientRect();
+        var p = reduced ? 1 : clamp01((vh() * .86 - r.top) / (r.height + vh() * .36));
+        var n = Math.round(p * words.length);
+        for (var i = 0; i < words.length; i++) words[i].classList.toggle("on", i < n);
+      });
+    }
+  }
+
+  // Свет за курсором на карточках пути и историй
+  if (!OO.touch && !reduced) {
+    document.querySelectorAll(".pc, .case").forEach(function (card) {
+      card.addEventListener("pointermove", function (e) {
+        var r = card.getBoundingClientRect();
+        card.style.setProperty("--mx", (e.clientX - r.left).toFixed(0) + "px");
+        card.style.setProperty("--my", (e.clientY - r.top).toFixed(0) + "px");
+      });
+    });
+  }
+
   // ── Галерея ─────────────────────────────────────────────────
   // Листается сама, как истории: полоска текущего кадра заполняется, на
   // её конце кадр сменяется. Кадр на экране медленно приближается, соседние
@@ -790,8 +916,11 @@
     // считаем, когда карточка въезжает в кадр.
     cases.forEach(function (c) {
       if (!c.dataset.to) return;
-      var from = +c.dataset.from, to = +c.dataset.to;
       var min = +(c.dataset.min || 0), max = +(c.dataset.max || 100);
+      // Без стартового балла линия начинается с нижней трети шкалы,
+      // а итоговое число не считается — показываем его как есть.
+      var hasFrom = c.dataset.from != null;
+      var from = hasFrom ? +c.dataset.from : min + (max - min) * .3, to = +c.dataset.to;
       var y0 = 70 - (from - min) / (max - min) * 60;
       var y1 = 70 - (to - min) / (max - min) * 60;
       var mid = (y0 + y1) / 2;
@@ -803,14 +932,19 @@
       var dot = c.querySelector(".case-line circle");
       dot.setAttribute("cx", "232");
       dot.setAttribute("cy", y1.toFixed(1));
-      if (!reduced) c.querySelector(".to b").textContent = from;
-      else c.classList.add("go");
+      var delta = c.querySelector(".case-delta [data-v]");
+      if (!reduced) {
+        if (hasFrom) c.querySelector(".to b").textContent = from;
+        if (delta) delta.textContent = "0";
+      } else c.classList.add("go");
     });
 
     var playCase = function (c) {
       c._done = true;
       c.classList.add("go");
-      OO.countTo(c.querySelector(".to b"), +c.dataset.from, +c.dataset.to, 1500);
+      if (c.dataset.from != null) OO.countTo(c.querySelector(".to b"), +c.dataset.from, +c.dataset.to, 1500);
+      var delta = c.querySelector(".case-delta [data-v]");
+      if (delta) OO.countTo(delta, 0, +delta.dataset.v, 1500);
     };
 
     // Закреплять ленту можно, только когда закреплённый кадр целиком

@@ -1,6 +1,6 @@
 <!doctype html>
-<!-- class="draft" показывает жёлтые пометки на заглушках: где ждём фото,
-     где истории учеников — примеры, где не вписан контакт. Когда всё
+<!-- class="draft" показывает жёлтые пометки на заглушках: где ждём фото
+     и сканы, где не вписан контакт. Когда всё
      настоящее на месте, класс убрать — пометки исчезнут сами. -->
 <html lang="ru" class="draft">
 <head>
@@ -22,8 +22,8 @@
 <!-- Кириллица грузится первой: без неё первый экран моргает системным шрифтом -->
 <link rel="preload" href="assets/fonts/onest-6980c39d.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/onest.css">
-<link rel="stylesheet" href="assets/css/base.css?v=10">
-<link rel="stylesheet" href="assets/css/sections.css?v=10">
+<link rel="stylesheet" href="assets/css/base.css?v=11">
+<link rel="stylesheet" href="assets/css/sections.css?v=12">
 <!-- Разметка для поиска. Цены обязаны совпадать с блоком «Цены» ниже:
      поиск показывает их в выдаче, и человек приходит с этим ожиданием.
      Рейтингов и отзывов здесь нет и не будет, пока нет настоящих. -->
@@ -37,7 +37,11 @@
       "name": "Оксана Олеговна",
       "jobTitle": "Репетитор по истории и обществознанию",
       "knowsAbout": ["История России", "Обществознание", "ЕГЭ", "ОГЭ"],
-      "award": ["Призёр конкурса «Учитель года — 2022»"]
+      "alumniOf": { "@type": "CollegeOrUniversity", "name": "Армавирский государственный педагогический университет" },
+      "award": [
+        "Победитель муниципального этапа конкурса «Учитель года — 2022»",
+        "Призёр республиканского этапа конкурса «Учитель года — 2022», Республика Адыгея"
+      ]
     },
     {
       "@type": "Service",
@@ -77,6 +81,13 @@
     <symbol id="i-cal" viewBox="0 0 24 24"><path d="M12.5 21h-6.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v5"/><path d="M16 3v4"/><path d="M8 3v4"/><path d="M4 11h16"/><path d="M16 19h6"/><path d="M19 16v6"/></symbol>
     <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M17 8v-3a1 1 0 0 0 -1 -1h-10a2 2 0 0 0 0 4h12a1 1 0 0 1 1 1v3m0 4v3a1 1 0 0 1 -1 1h-12a2 2 0 0 1 -2 -2v-12"/><path d="M20 12v4h-4a2 2 0 0 1 0 -4h4"/></symbol>
     <symbol id="i-chat" viewBox="0 0 24 24"><path d="M3 20l1.3 -3.9c-2.324 -3.437 -1.426 -7.872 2.1 -10.374c3.526 -2.501 8.59 -2.296 11.845 .48c3.255 2.777 3.695 7.266 1.029 10.501c-2.666 3.235 -7.615 4.215 -11.574 2.293l-4.7 1"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><path d="M11 12a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/><path d="M7 12a5 5 0 1 0 10 0a5 5 0 1 0 -10 0"/><path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M5 7a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/><path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/><path d="M21 21v-2a4 4 0 0 0 -3 -3.85"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"/><path d="M9 9l1 0"/><path d="M9 13l6 0"/><path d="M9 17l6 0"/></symbol>
+    <symbol id="i-medal" viewBox="0 0 24 24"><path d="M12 4v3m-4 -3v6m8 -6v6"/><path d="M12 18.5l-3 1.5l.5 -3.5l-2 -2l3 -.5l1.5 -3l1.5 3l3 .5l-2 2l.5 3.5z"/></symbol>
+    <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M3 12h1m8 -9v1m8 8h1m-15.4 -6.4l.7 .7m12.1 -.7l-.7 .7"/><path d="M9 16a5 5 0 1 1 6 0a3.5 3.5 0 0 0 -1 3a2 2 0 0 1 -4 0a3.5 3.5 0 0 0 -1 -3"/><path d="M9.7 17l4.6 0"/></symbol>
+    <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M16 18a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2zm0 -12a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2zm-7 12a6 6 0 0 1 6 -6a6 6 0 0 1 -6 -6a6 6 0 0 1 -6 6a6 6 0 0 1 6 6z"/></symbol>
     <symbol id="i-zoom" viewBox="0 0 24 24"><path d="M3 10a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"/><path d="M7 10l6 0"/><path d="M10 7l0 6"/><path d="M21 21l-6 -6"/></symbol>
   </defs>
 </svg>
@@ -387,12 +398,171 @@
           а&nbsp;объясняю, пока не&nbsp;станет понятно.
         </p>
         <ul class="facts stagger">
-          <li><span class="facts-i"><svg class="ic"><use href="#i-school"/></svg></span>Красные дипломы бакалавриата и&nbsp;магистратуры</li>
+          <li><span class="facts-i"><svg class="ic"><use href="#i-school"/></svg></span>Красный диплом АГПУ и&nbsp;магистратура с&nbsp;отличием</li>
+          <li><span class="facts-i"><svg class="ic"><use href="#i-target"/></svg></span>Сама сдала ЕГЭ: история&nbsp;— 95, обществознание&nbsp;— 98</li>
           <li><span class="facts-i"><svg class="ic"><use href="#i-clip"/></svg></span>Эксперт по&nbsp;проверке ЕГЭ, ОГЭ и&nbsp;олимпиад</li>
-          <li><span class="facts-i"><svg class="ic"><use href="#i-award"/></svg></span>Призёр конкурса «Учитель года&nbsp;— 2022»</li>
+          <li><span class="facts-i"><svg class="ic"><use href="#i-heart"/></svg></span>Диплом социального педагога и&nbsp;психолога</li>
+          <li><span class="facts-i"><svg class="ic"><use href="#i-award"/></svg></span>Призёр конкурса «Учитель года&nbsp;— 2022», ТОП‑5&nbsp;учителей Адыгеи</li>
           <li><span class="facts-i"><svg class="ic"><use href="#i-book"/></svg></span>Автор пособий и&nbsp;методических материалов</li>
           <li><span class="facts-i"><svg class="ic"><use href="#i-trophy"/></svg></span>Победитель международных и&nbsp;всероссийских конкурсов</li>
         </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ МОЙ ПУТЬ ═══════════
+     Слева крупно этап — год или слово; он сменяется, пока читаешь главы
+     справа. Рельс заполняется вместе с прокруткой, бегущая точка светится,
+     точки у прочитанных карточек загораются. Фон медленно идёт от тёплого
+     к лаймовому и синему, как в «Обучении». В конце — манифест: слова
+     проявляются по мере прокрутки. На телефоне левая колонка уходит,
+     подпись этапа встаёт над каждой главой.
+     Годы только те, что назвала Оксана Олеговна: 2015, 2017, 2022.
+     Где года нет, вместо него слово — не придумывать. -->
+<section class="sec path-sec" id="path">
+  <div class="path-glow" aria-hidden="true"><i class="g1"></i><i class="g2"></i><i class="g3"></i></div>
+  <div class="wrap">
+    <div class="path-intro">
+      <h2 class="h2 up">За&nbsp;каждым результатом<br>учеников&nbsp;— мой путь</h2>
+      <p class="lead up" data-delay=".08">Годы учёбы, педагогической практики, научной работы и&nbsp;постоянного профессионального развития.</p>
+    </div>
+
+    <div class="path">
+      <div class="path-aside" aria-hidden="true">
+        <div class="path-stick">
+          <div class="path-n"><span class="odo">01</span><span>/ 06</span></div>
+          <div class="path-big"><span>2015</span></div>
+          <p class="path-cap">Бакалавриат</p>
+          <div class="path-dots"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+      </div>
+
+      <div class="path-body">
+        <i class="path-rail" aria-hidden="true"><u></u><b></b></i>
+
+        <div class="pch" data-big="2015" data-cap="Бакалавриат">
+          <h3 class="pch-h"><span>2015</span>Бакалавриат</h3>
+          <article class="pc up">
+            <span class="pc-ic"><svg class="ic"><use href="#i-school"/></svg></span>
+            <h4>АГПУ, Армавир. Бакалавриат с&nbsp;красным дипломом</h4>
+            <p>Ещё во&nbsp;время учёбы занималась научной деятельностью: писала научные статьи, публиковалась, выступала на&nbsp;конференциях.</p>
+            <a class="pc-more" href="#publications">Мои научные статьи<svg class="ic"><use href="#i-arrow-r"/></svg></a>
+          </article>
+        </div>
+
+        <div class="pch" data-big="2017" data-cap="Магистратура">
+          <h3 class="pch-h"><span>2017</span>Магистратура</h3>
+          <article class="pc up">
+            <span class="pc-ic"><svg class="ic"><use href="#i-file"/></svg></span>
+            <h4>Бюджет, отличие и&nbsp;магистерская диссертация</h4>
+            <p>Поступила в&nbsp;магистратуру на&nbsp;бюджет и&nbsp;в&nbsp;2017&nbsp;году окончила её с&nbsp;отличием, защитив магистерскую диссертацию.</p>
+          </article>
+        </div>
+
+        <div class="pch" data-big="Школа" data-cap="Сразу после университета">
+          <h3 class="pch-h"><span>Школа</span>Сразу после университета</h3>
+          <article class="pc up">
+            <span class="pc-ic"><svg class="ic"><use href="#i-users"/></svg></span>
+            <h4>Сразу в&nbsp;профессию&nbsp;— и&nbsp;одно время в&nbsp;двух школах</h4>
+            <p>Желание развиваться было настолько сильным, что&nbsp;одно время я совмещала работу сразу в&nbsp;двух школах.</p>
+            <div class="pc-tags"><span class="tag">Учитель-предметник</span><span class="tag">Классный руководитель</span><span class="tag">Социальный педагог</span></div>
+          </article>
+          <article class="pc up">
+            <span class="pc-ic"><svg class="ic"><use href="#i-heart"/></svg></span>
+            <h4>Диплом социального педагога и&nbsp;психолога</h4>
+            <p>Мне всегда было важно понимать ребёнка не&nbsp;только с&nbsp;точки зрения учёбы. Эти знания помогают видеть за&nbsp;оценками прежде всего личность ученика, понимать его мотивацию и&nbsp;находить индивидуальный подход.</p>
+          </article>
+        </div>
+
+        <div class="pch" data-big="ЕГЭ" data-cap="Знаю экзамен изнутри">
+          <h3 class="pch-h"><span>ЕГЭ</span>Знаю экзамен изнутри</h3>
+          <article class="pc up">
+            <span class="pc-ic"><svg class="ic"><use href="#i-clip"/></svg></span>
+            <h4>Эксперт ЕГЭ и&nbsp;проверка олимпиад</h4>
+            <p>За&nbsp;годы работы: научные и&nbsp;методические публикации, проверка олимпиадных работ, работа экспертом ЕГЭ, профессиональные конкурсы и&nbsp;педагогические фестивали.</p>
+          </article>
+          <article class="pc pc-ege up">
+            <span class="pc-ic"><svg class="ic"><use href="#i-target"/></svg></span>
+            <h4>Сама сдала ЕГЭ на&nbsp;высокие баллы</h4>
+            <div class="ege">
+              <div class="ege-r" style="--off:5">
+                <span class="ege-o">
+                  <svg viewBox="0 0 100 100" aria-hidden="true">
+                    <defs><linearGradient id="egeg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#C9F24D"/><stop offset="1" stop-color="#7C88FF"/></linearGradient></defs>
+                    <circle class="bg" cx="50" cy="50" r="44"/><circle class="fg" cx="50" cy="50" r="44" pathLength="100"/>
+                  </svg>
+                  <b data-count="95">95</b>
+                </span>
+                <span class="ege-l"><b>История</b><span>баллов из&nbsp;100</span></span>
+              </div>
+              <div class="ege-r" style="--off:2">
+                <span class="ege-o">
+                  <svg viewBox="0 0 100 100" aria-hidden="true"><circle class="bg" cx="50" cy="50" r="44"/><circle class="fg" cx="50" cy="50" r="44" pathLength="100"/></svg>
+                  <b data-count="98">98</b>
+                </span>
+                <span class="ege-l"><b>Обществознание</b><span>баллов из&nbsp;100</span></span>
+              </div>
+            </div>
+            <p>Поэтому знаю не&nbsp;только теорию предмета, но&nbsp;и&nbsp;то, как&nbsp;выстроить подготовку, научить работать с&nbsp;экзаменационными заданиями и&nbsp;уверенно двигаться к&nbsp;высоким баллам.</p>
+          </article>
+        </div>
+
+        <div class="pch" data-big="2022" data-cap="«Учитель года»">
+          <h3 class="pch-h"><span>2022</span>«Учитель года»</h3>
+          <article class="pc up">
+            <span class="pc-ic"><svg class="ic"><use href="#i-trophy"/></svg></span>
+            <h4>Конкурс «Учитель года&nbsp;— 2022»</h4>
+            <div class="medals">
+              <div class="medal">
+                <span class="medal-o"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="29" pathLength="100"/></svg><svg class="ic"><use href="#i-trophy"/></svg></span>
+                <b>Победитель</b><span>муниципального этапа</span>
+              </div>
+              <div class="medal">
+                <span class="medal-o"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="29" pathLength="100"/></svg><svg class="ic"><use href="#i-medal"/></svg></span>
+                <b>Призёр</b><span>республиканского этапа</span>
+              </div>
+              <div class="medal">
+                <span class="medal-o"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="29" pathLength="100"/></svg><svg class="ic"><use href="#i-star"/></svg></span>
+                <b>ТОП‑5</b><span>учителей Республики Адыгея</span>
+              </div>
+            </div>
+            <p>Позже&nbsp;— руководитель клуба учителей района, педагогические фестивали, профессиональные встречи и&nbsp;общение с&nbsp;«Учителями года России».</p>
+          </article>
+          <article class="pc pc-quote up">
+            <span class="pc-ic"><svg class="ic"><use href="#i-heart"/></svg></span>
+            <h4>Но&nbsp;одно из&nbsp;самых важных достижений&nbsp;— отношения с&nbsp;учениками</h4>
+            <p>Я всегда старалась создавать атмосферу доверия и&nbsp;поддержки. И&nbsp;сегодня продолжаю общаться со&nbsp;многими бывшими учениками, наблюдая за&nbsp;их взрослением и&nbsp;успехами.</p>
+          </article>
+        </div>
+
+        <div class="pch" data-big="Сегодня" data-cap="Индивидуальная подготовка">
+          <h3 class="pch-h"><span>Сегодня</span>Индивидуальная подготовка</h3>
+          <article class="pc up">
+            <span class="pc-ic"><svg class="ic"><use href="#i-sparkles"/></svg></span>
+            <h4>Полностью сосредоточилась на&nbsp;индивидуальной подготовке</h4>
+            <p>В&nbsp;какой-то момент поняла, что&nbsp;хочу больше времени уделять ученикам, их развитию и&nbsp;результатам. Сегодня я объединяю:</p>
+            <ul class="unite stagger">
+              <li><svg class="ic"><use href="#i-school"/></svg>сильную академическую базу</li>
+              <li><svg class="ic"><use href="#i-file"/></svg>научную деятельность и&nbsp;публикации</li>
+              <li><svg class="ic"><use href="#i-cal"/></svg>10+ лет педагогического опыта</li>
+              <li><svg class="ic"><use href="#i-clip"/></svg>опыт эксперта ЕГЭ и&nbsp;проверки олимпиад</li>
+              <li><svg class="ic"><use href="#i-heart"/></svg>образование социального педагога и&nbsp;психолога</li>
+              <li><svg class="ic"><use href="#i-trophy"/></svg>профессиональные достижения</li>
+              <li><svg class="ic"><use href="#i-target"/></svg>личный опыт высоких результатов ЕГЭ</li>
+            </ul>
+            <p class="pc-main"><svg class="ic"><use href="#i-bulb"/></svg><span>Но&nbsp;главное&nbsp;— умею объяснять сложное простым языком, видеть сильные и&nbsp;слабые стороны ученика и&nbsp;выстраивать подготовку именно под его цель.</span></p>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="mani">
+      <p class="mani-t" data-scrub>Я не&nbsp;просто готовлю к&nbsp;экзамену. Я создаю систему, в&nbsp;которой ученик <em>понимает предмет,</em> <em>верит в&nbsp;свои силы</em> и <em>знает, как&nbsp;прийти к&nbsp;результату.</em></p>
+      <p class="mani-s up">Для&nbsp;меня преподавание&nbsp;— не&nbsp;просто профессия. Это моё дело, мой выбор и&nbsp;моё призвание.</p>
+      <div class="mani-end up" data-delay=".1">
+        <p>Мой путь продолжается. И&nbsp;я буду рада пройти следующий этап вместе с&nbsp;вами.</p>
+        <a href="#trial" class="btn btn-lime btn-lg"><span>Пробный урок бесплатно</span></a>
       </div>
     </div>
   </div>
@@ -422,7 +592,7 @@
         <div class="doc-txt">
           <em>2022 · Республика Адыгея</em>
           <h3 class="doc-t">Призёр конкурса «Учитель года&nbsp;— 2022»</h3>
-          <p>Награду вручал Глава Республики Адыгея Мурат Кумпилов.</p>
+          <p>Победитель муниципального этапа, призёр республиканского, ТОП‑5&nbsp;учителей Республики Адыгея. Награду вручал Глава Республики Адыгея Мурат Кумпилов.</p>
         </div>
         <div class="doc-more" hidden>
           <p>«Учитель года»&nbsp;— один из&nbsp;самых известных профессиональных конкурсов для&nbsp;учителей
@@ -441,11 +611,11 @@
                onload="this.parentNode.classList.add('has')" onerror="this.remove()">
         </div>
         <div class="doc-txt">
-          <em>Магистратура</em>
+          <em>Магистратура · 2017</em>
           <h3 class="doc-t">Красный диплом магистра</h3>
         </div>
         <div class="doc-more" hidden>
-          <p>Магистратура с&nbsp;отличием<span class="draft-fill"> · [вуз, направление, год]</span>.</p>
+          <p>Магистратура на&nbsp;бюджете, окончила с&nbsp;отличием в&nbsp;2017&nbsp;году и&nbsp;защитила магистерскую диссертацию.</p>
           <p>Глубокая предметная база помогает объяснять сложные темы простыми словами
             и&nbsp;отвечать на&nbsp;вопросы, которые выходят за&nbsp;рамки учебника.</p>
         </div>
@@ -459,11 +629,11 @@
                onload="this.parentNode.classList.add('has')" onerror="this.remove()">
         </div>
         <div class="doc-txt">
-          <em>Бакалавриат</em>
+          <em>АГПУ, Армавир · 2015</em>
           <h3 class="doc-t">Красный диплом бакалавра</h3>
         </div>
         <div class="doc-more" hidden>
-          <p>Бакалавриат с&nbsp;отличием<span class="draft-fill"> · [вуз, направление, год]</span>.</p>
+          <p>Армавирский государственный педагогический университет, 2015&nbsp;год. Ещё во&nbsp;время учёбы&nbsp;— научные статьи, публикации и&nbsp;выступления на&nbsp;конференциях.</p>
           <p>Отсюда привычка разбираться в&nbsp;предмете системно: сначала связи и&nbsp;причины,
             потом детали. Так же построены мои уроки.</p>
         </div>
@@ -544,6 +714,50 @@
   </div>
 </section>
 
+<!-- ═══════════ НАУЧНЫЕ ПУБЛИКАЦИИ ═══════════
+     Статьи из магистратуры АГПУ (2017), ЦНС «Интерактив плюс», CC BY 4.0.
+     Полный текст — на страницах articles/*.html (их собирает
+     tools/articles.py), PDF издательства — в assets/articles. Карточка
+     целиком ссылка на статью; PDF — отдельная ссылка поверх неё.
+     За карточкой два листа: при появлении они чуть расходятся веером,
+     под курсором — сильнее. -->
+<section class="sec pubs-sec" id="publications">
+  <div class="wrap">
+    <div class="pubs-head">
+      <h2 class="h2 up">Научные<br>публикации</h2>
+      <p class="lead up" data-delay=".08">Статьи, написанные в&nbsp;магистратуре: об&nbsp;этнопедагогике и&nbsp;традициях воспитания кубанских казаков. Опубликованы в&nbsp;сборниках международных конференций и&nbsp;размещены в&nbsp;РИНЦ.</p>
+    </div>
+    <div class="pubs stagger">
+      <article class="pub">
+        <i class="pub-sheet" aria-hidden="true"></i><i class="pub-sheet" aria-hidden="true"></i>
+        <div class="pub-in">
+          <div class="pub-top"><span class="pub-yr">2017</span><span>История и&nbsp;политология</span><span class="pub-rinc">РИНЦ</span></div>
+          <h3 class="h3"><a class="pub-link" href="articles/fizicheskoe-vospitanie-kubanskih-kazakov.html">Особенности физического воспитания кубанских казаков</a></h3>
+          <p class="pub-src">V Международная научно-практическая конференция «Научное и&nbsp;образовательное пространство: перспективы развития», с. 30–32</p>
+          <p class="pub-abs">В&nbsp;данной статье рассмотрены особенности физического воспитания у&nbsp;казаков. По&nbsp;мнению авторов, физическое воспитание казачонка начиналось с&nbsp;раннего детства и&nbsp;продолжалось всю его жизнь, он развивал в&nbsp;себе все лучшие качества, которые могли ему пригодиться, как&nbsp;в&nbsp;военной службе, так и&nbsp;на&nbsp;бытовом уровне.</p>
+          <div class="pub-act">
+            <span class="pub-read">Читать статью<svg class="ic"><use href="#i-arrow-r"/></svg></span>
+            <a class="pub-pdf" href="assets/articles/mishkhozheva-2017-fizicheskoe-vospitanie.pdf" download>PDF · 362&nbsp;КБ</a>
+          </div>
+        </div>
+      </article>
+      <article class="pub">
+        <i class="pub-sheet" aria-hidden="true"></i><i class="pub-sheet" aria-hidden="true"></i>
+        <div class="pub-in">
+          <div class="pub-top"><span class="pub-yr">2017</span><span>Педагогика</span><span class="pub-rinc">РИНЦ</span></div>
+          <h3 class="h3"><a class="pub-link" href="articles/vospominaniya-shcherbiny-i-eliseeva.html">Воспоминания Ф.А.&nbsp;Щербины и&nbsp;Ф.И.&nbsp;Елисеева как&nbsp;источник по&nbsp;этнопедагогике кубанских казаков</a></h3>
+          <p class="pub-src">Международная научно-практическая конференция «Образование и&nbsp;наука в&nbsp;современных реалиях», т. 1, с. 188–190</p>
+          <p class="pub-abs">В&nbsp;данной статье рассмотрены особенности казачьих традиций воспитания и&nbsp;обучения. Исследованы воспоминания видных казачьих общественных деятелей, таких как&nbsp;Ф.А. Щербины и&nbsp;Ф.И. Елисеева. Отмечена джигитовки как&nbsp;один из&nbsp;главных элементов обучения у&nbsp;казаков.</p>
+          <div class="pub-act">
+            <span class="pub-read">Читать статью<svg class="ic"><use href="#i-arrow-r"/></svg></span>
+            <a class="pub-pdf" href="assets/articles/mishkhozheva-2017-shcherbina-eliseev.pdf" download>PDF · 352&nbsp;КБ</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
 <!-- ═══════════ КАК ПРОХОДИТ ОБУЧЕНИЕ ═══════════
      Весь путь до экзамена, а не один урок: что происходит на старте,
      на каждом занятии, после него и перед ЕГЭ. Лента загорается по мере
@@ -555,7 +769,7 @@
   </div>
   <div class="wrap">
     <h2 class="h2 sec-head up">Как&nbsp;проходит<br>обучение</h2>
-    <p class="lead les-lead up" data-delay=".08">Работаю на&nbsp;максимум: авторская методика, проверка каждого домашнего задания и&nbsp;пробники в&nbsp;формате ЕГЭ.</p>
+    <p class="lead les-lead up" data-delay=".08">Моя методика: теория с&nbsp;нуля и&nbsp;практика на&nbsp;каждом занятии, подготовка по&nbsp;кодификатору и&nbsp;критериям ЕГЭ, индивидуальный маршрут под уровень и&nbsp;цель ученика.</p>
     <div class="clock up" data-delay=".1" aria-hidden="true">
       <svg viewBox="0 0 120 120">
         <defs>
@@ -573,30 +787,30 @@
     <div class="les-hold">
       <i class="les-rail" aria-hidden="true"><u></u></i>
       <ol class="les stagger">
-        <li data-short="старт"><b>Старт</b><p><strong>Диагностика и&nbsp;личный план.</strong> Смотрим, откуда стартуем, ставим цель в&nbsp;баллах и&nbsp;расписываем путь до&nbsp;экзамена под ваш уровень.</p></li>
-        <li data-short="уроки"><b>Каждый урок</b><p><strong>Авторская методика.</strong> Схемы, связи и&nbsp;мои пособия вместо зубрёжки. Разбираем ловушки ЕГЭ, на&nbsp;которых теряют баллы.</p></li>
+        <li data-short="старт"><b>Старт</b><p><strong>Диагностика и&nbsp;индивидуальный маршрут.</strong> Смотрим, откуда стартуем, ставим цель в&nbsp;баллах и&nbsp;строим маршрут до&nbsp;экзамена под уровень и&nbsp;цель ученика.</p></li>
+        <li data-short="уроки"><b>Каждый урок</b><p><strong>Теория с&nbsp;нуля и&nbsp;практика.</strong> Идём по&nbsp;кодификатору и&nbsp;критериям ЕГЭ. Сложное объясняю простым языком и&nbsp;добавляю интересные факты&nbsp;— так запоминается лучше. Разбираем ловушки, на&nbsp;которых теряют баллы.</p></li>
         <li data-short="ДЗ"><b>После урока</b><p><strong>Домашнее задание с&nbsp;проверкой.</strong> Проверяю каждое ДЗ и&nbsp;подробно разбираю ошибки, а&nbsp;не&nbsp;просто ставлю оценку.</p></li>
-        <li data-short="пробники"><b>Регулярно</b><p><strong>Пробники в&nbsp;формате ЕГЭ.</strong> Проверяю по&nbsp;критериям эксперта и&nbsp;показываю, сколько баллов прибавилось с&nbsp;прошлого раза.</p></li>
-        <li data-short="на связи"><b>Между уроками</b><p><strong>Связь с&nbsp;учеником и&nbsp;родителями.</strong> Отвечаю на&nbsp;вопросы между занятиями, родители всегда знают, как&nbsp;идут дела.</p></li>
-        <li data-short="записи"><b>В&nbsp;любой момент</b><p><strong>Записи уроков и&nbsp;готовые материалы.</strong> Пропущенную тему можно пересмотреть, конспекты и&nbsp;пособия остаются у&nbsp;ученика.</p></li>
+        <li data-short="пробник"><b>Каждый месяц</b><p><strong>Пробник и&nbsp;разбор каждой ошибки.</strong> Проверяю по&nbsp;критериям эксперта и&nbsp;показываю, сколько баллов прибавилось с&nbsp;прошлого раза.</p></li>
+        <li data-short="на связи"><b>Между уроками</b><p><strong>Поддержка и&nbsp;обратная связь.</strong> Отвечаю на&nbsp;вопросы между занятиями, родители всегда знают, как&nbsp;идут дела.</p></li>
+        <li data-short="кабинет"><b>В&nbsp;любой момент</b><p><strong>Личный кабинет ученика.</strong> Материалы, задания и&nbsp;видеоуроки в&nbsp;одном месте. Пропущенную тему можно пересмотреть, конспекты и&nbsp;пособия остаются у&nbsp;ученика.</p></li>
         <li data-short="финал"><b>Перед экзаменом</b><p><strong>Финальное повторение.</strong> Бесплатное групповое занятие «Быстрое повторение всего курса»: собираем всё в&nbsp;одну систему.</p></li>
       </ol>
     </div>
-    <p class="les-sum up">Ничего не&nbsp;остаётся без&nbsp;проверки:<br>ни&nbsp;домашнее задание, ни&nbsp;пробник.</p>
+    <p class="les-sum up">Моя цель —<br>уверенность ученика и&nbsp;высокий результат.</p>
   </div>
 </section>
 
 <!-- ═══════════ ИСТОРИИ УЧЕНИКОВ ═══════════
      На широком экране секция встаёт на месте, а карточки едут вбок
      вместе с прокруткой вниз. На телефоне — обычная лента под палец.
-     ⚠ Сейчас это ПРИМЕРЫ, собранные по объявлению (с нуля, за месяц,
-     вторая часть, ОГЭ). Перед публикацией заменить настоящими
-     историями — с согласия родителей. Пометки .draft-tag уйдут
-     вместе с классом draft у <html>. -->
+     Истории настоящие, от Оксаны Олеговны (25.10.2026). У Фатимы нет
+     стартового балла — поэтому у её карточки нет data-from: линия
+     рисуется, а число не считается. Предмет у Софии и Сони не указан —
+     не дописывать, пока не уточним. -->
 <section class="cases-sec" id="cases">
   <div class="wrap cases-head">
     <h2 class="h2 up">Истории<br>моих учеников</h2>
-    <p class="lead up" data-delay=".08" style="margin-top:18px">Разные стартовые точки и&nbsp;разное время до&nbsp;экзамена.</p>
+    <p class="lead up" data-delay=".08" style="margin-top:18px">Настоящие результаты: разные стартовые точки и&nbsp;разное время до&nbsp;экзамена.</p>
   </div>
   <!-- cases-run задаёт длину прокрутки, cases-pin внутри неё стоит на месте,
        пока лента едет. Заголовок снаружи: он уходит вверх обычным порядком,
@@ -607,68 +821,98 @@
     <div class="cases-view">
       <div class="cases-track">
 
-        <article class="case" data-from="34" data-to="82" data-max="100">
-          <span class="draft-tag">пример · заменить реальной историей</span>
-          <div class="case-top"><span class="tag">ЕГЭ · обществознание</span><span class="tag">индивидуально</span><span class="tag">9&nbsp;месяцев</span></div>
-          <h3 class="h3">С&nbsp;нуля до&nbsp;бюджета</h3>
+        <article class="case" data-from="32" data-to="83" data-max="100">
+          <div class="case-who">
+            <span class="case-ava" aria-hidden="true">С</span>
+            <span class="case-id"><b>Соня</b><span>ЕГЭ · 7&nbsp;месяцев</span></span>
+            <span class="case-delta"><b>+<span data-v="51">51</span></b> балл</span>
+          </div>
+          <h3 class="h3">Семь месяцев системной работы</h3>
           <div class="case-score">
-            <div class="from"><em>первый пробник</em><b>34</b></div>
+            <div class="from"><em>старт</em><b>32</b></div>
             <svg class="case-line" viewBox="0 0 240 80" aria-hidden="true"><path pathLength="1"/><circle r="4.5"/></svg>
-            <div class="to"><em>ЕГЭ</em><b>82</b></div>
+            <div class="to"><em>итог</em><b>83</b></div>
           </div>
           <dl class="case-dl">
-            <div><dt>С&nbsp;чем пришла</dt><dd>Обществознание казалось лёгким, пока первый пробник не&nbsp;показал 34&nbsp;балла. Путала понятия, вторую часть не&nbsp;решала.</dd></div>
-            <div><dt>Что&nbsp;делали</dt><dd>Прошли курс по&nbsp;пяти блокам, завели словарь терминов. Вторую часть разбирали по&nbsp;критериям, раз&nbsp;в&nbsp;месяц писали пробник.</dd></div>
-            <div><dt>Итог</dt><dd>82&nbsp;балла и&nbsp;бюджетное место на&nbsp;юридическом.</dd></div>
+            <div><dt>С&nbsp;чем пришла</dt><dd>По&nbsp;совету подруги. Очень способная ученица, готовая работать и&nbsp;развиваться.</dd></div>
+            <div><dt>Что&nbsp;делали</dt><dd>Не&nbsp;просто учили материал, а&nbsp;выстроили систему подготовки, разобрали слабые места и&nbsp;научились уверенно решать задания экзамена.</dd></div>
+            <div><dt>Итог</dt><dd>83&nbsp;балла вместо 32&nbsp;на&nbsp;старте.</dd></div>
           </dl>
         </article>
 
-        <article class="case" data-from="41" data-to="72" data-max="100">
-          <span class="draft-tag">пример · заменить реальной историей</span>
-          <div class="case-top"><span class="tag">ЕГЭ · история</span><span class="tag">индивидуально</span><span class="tag">5&nbsp;недель</span></div>
-          <h3 class="h3">За&nbsp;пять недель до&nbsp;экзамена</h3>
+        <article class="case" data-from="62" data-to="90" data-max="100">
+          <div class="case-who">
+            <span class="case-ava" aria-hidden="true">Е</span>
+            <span class="case-id"><b>Екатерина, Екатеринбург</b><span>ЕГЭ · обществознание · в&nbsp;паре</span></span>
+            <span class="case-delta"><b>+<span data-v="28">28</span></b> баллов</span>
+          </div>
+          <h3 class="h3">90&nbsp;баллов и&nbsp;всего 3&nbsp;ошибки</h3>
           <div class="case-score">
-            <div class="from"><em>в&nbsp;конце апреля</em><b>41</b></div>
+            <div class="from"><em>старт, ноябрь</em><b>62</b></div>
             <svg class="case-line" viewBox="0 0 240 80" aria-hidden="true"><path pathLength="1"/><circle r="4.5"/></svg>
-            <div class="to"><em>ЕГЭ</em><b>72</b></div>
+            <div class="to"><em>ЕГЭ, июнь</em><b>90</b></div>
           </div>
           <dl class="case-dl">
-            <div><dt>С&nbsp;чем пришёл</dt><dd>Написал за&nbsp;пять недель до&nbsp;экзамена. База была, системы не&nbsp;было.</dd></div>
-            <div><dt>Что&nbsp;делали</dt><dd>Никакой теории «на&nbsp;всякий случай». Только темы, которые дают больше всего баллов, и&nbsp;задания, на&nbsp;которых их обычно теряют.</dd></div>
-            <div><dt>Итог</dt><dd>72&nbsp;балла. Хватило для&nbsp;поступления на&nbsp;выбранное направление.</dd></div>
+            <div><dt>Как&nbsp;занимались</dt><dd>Раз&nbsp;в&nbsp;неделю в&nbsp;паре, с&nbsp;ноября. Были пропуски из-за каникул, но&nbsp;мы продолжали работать по&nbsp;системе.</dd></div>
+            <div><dt>Итог</dt><dd>90&nbsp;баллов по&nbsp;обществознанию, всего 3&nbsp;ошибки на&nbsp;экзамене.</dd></div>
+          </dl>
+          <p class="case-note">Результат системной подготовки и&nbsp;работы ученицы.</p>
+        </article>
+
+        <article class="case" data-from="13" data-to="36" data-max="37">
+          <div class="case-who">
+            <span class="case-ava" aria-hidden="true">С</span>
+            <span class="case-id"><b>Семён</b><span>ОГЭ‑2026 · обществознание</span></span>
+            <span class="case-delta"><b>+<span data-v="23">23</span></b> балла</span>
+          </div>
+          <h3 class="h3">36&nbsp;из&nbsp;37&nbsp;на&nbsp;ОГЭ</h3>
+          <div class="case-score">
+            <div class="from"><em>декабрь 2025</em><b>13</b></div>
+            <svg class="case-line" viewBox="0 0 240 80" aria-hidden="true"><path pathLength="1"/><circle r="4.5"/></svg>
+            <div class="to"><em>ОГЭ, из&nbsp;37</em><b>36</b></div>
+          </div>
+          <dl class="case-dl">
+            <div><dt>Как&nbsp;занимались</dt><dd>Всего раз&nbsp;в&nbsp;неделю по&nbsp;45&nbsp;минут, с&nbsp;декабря до&nbsp;июня.</dd></div>
+            <div><dt>Итог</dt><dd>36&nbsp;баллов из&nbsp;37&nbsp;возможных. Семён перешёл в&nbsp;10&nbsp;класс, и&nbsp;мы продолжаем работу.</dd></div>
           </dl>
         </article>
 
-        <article class="case" data-from="61" data-to="89" data-max="100">
-          <span class="draft-tag">пример · заменить реальной историей</span>
-          <div class="case-top"><span class="tag">ЕГЭ · обществознание</span><span class="tag">вдвоём</span><span class="tag">4&nbsp;месяца</span></div>
-          <h3 class="h3">Вторая часть за&nbsp;пять занятий</h3>
+        <article class="case" data-from="38" data-to="57" data-max="100">
+          <div class="case-who">
+            <span class="case-ava" aria-hidden="true">С</span>
+            <span class="case-id"><b>София</b><span>ЕГЭ · пересдача</span></span>
+            <span class="case-delta"><b>+<span data-v="19">19</span></b> баллов</span>
+          </div>
+          <h3 class="h3">Пересдача за&nbsp;две недели</h3>
           <div class="case-score">
-            <div class="from"><em>пробник в&nbsp;январе</em><b>61</b></div>
+            <div class="from"><em>первый экзамен</em><b>38</b></div>
             <svg class="case-line" viewBox="0 0 240 80" aria-hidden="true"><path pathLength="1"/><circle r="4.5"/></svg>
-            <div class="to"><em>ЕГЭ</em><b>89</b></div>
+            <div class="to"><em>пересдача</em><b>57</b></div>
           </div>
           <dl class="case-dl">
-            <div><dt>С&nbsp;чем пришла</dt><dd>Тесты решала хорошо, а&nbsp;на&nbsp;второй части теряла почти половину баллов.</dd></div>
-            <div><dt>Что&nbsp;делали</dt><dd>Пять занятий только на&nbsp;оформление: план, примеры, обоснование. Потом в&nbsp;паре проверяли ответы друг друга по&nbsp;критериям.</dd></div>
-            <div><dt>Итог</dt><dd>89&nbsp;баллов и&nbsp;поступление в&nbsp;ВШЭ.</dd></div>
+            <div><dt>С&nbsp;чем пришла</dt><dd>Нашла меня на&nbsp;Авито. До&nbsp;пересдачи оставалось всего две недели.</dd></div>
+            <div><dt>Что&nbsp;делали</dt><dd>Системно разобрали ошибки, закрыли пробелы и&nbsp;подготовились по&nbsp;моей методике.</dd></div>
+            <div><dt>Итог</dt><dd>Поступление в&nbsp;Санкт-Петербургский институт культуры, профессия&nbsp;— лингвист-переводчик.</dd></div>
           </dl>
         </article>
 
-        <article class="case" data-from="3" data-to="5" data-min="2" data-max="5">
-          <span class="draft-tag">пример · заменить реальной историей</span>
-          <div class="case-top"><span class="tag">ОГЭ · история</span><span class="tag">мини-группа</span><span class="tag">7&nbsp;месяцев</span></div>
-          <h3 class="h3">ОГЭ без&nbsp;страха ошибиться</h3>
+        <article class="case" data-to="4" data-min="2" data-max="5">
+          <div class="case-who">
+            <span class="case-ava" aria-hidden="true">Ф</span>
+            <span class="case-id"><b>Фатима</b><span>ОГЭ · история</span></span>
+            <span class="case-delta case-delta-t"><b>1</b> месяц</span>
+          </div>
+          <h3 class="h3">Месяц до&nbsp;экзамена</h3>
           <div class="case-score">
-            <div class="from"><em>оценка в&nbsp;сентябре</em><b>3</b></div>
+            <div class="from"><em>до&nbsp;ОГЭ оставался</em><b>1<small>мес.</small></b></div>
             <svg class="case-line" viewBox="0 0 240 80" aria-hidden="true"><path pathLength="1"/><circle r="4.5"/></svg>
-            <div class="to"><em>ОГЭ</em><b>5</b></div>
+            <div class="to"><em>оценка на&nbsp;ОГЭ</em><b>4</b></div>
           </div>
           <dl class="case-dl">
-            <div><dt>С&nbsp;чем пришёл</dt><dd>Боялся отвечать и&nbsp;был уверен, что&nbsp;история «не&nbsp;его» предмет.</dd></div>
-            <div><dt>Что&nbsp;делали</dt><dd>Мини-группа из&nbsp;шести человек, квизы и&nbsp;разборы. Когда ошибаются все, ошибаться уже не&nbsp;страшно.</dd></div>
-            <div><dt>Итог</dt><dd>Пятёрка на&nbsp;ОГЭ и&nbsp;история в&nbsp;профильном классе.</dd></div>
+            <div><dt>Что&nbsp;делали</dt><dd>Сразу определили чёткий маршрут: что&nbsp;изучаем, какие темы в&nbsp;приоритете и&nbsp;на&nbsp;чём сосредоточиться в&nbsp;первую очередь.</dd></div>
+            <div><dt>Итог</dt><dd>Четвёрка на&nbsp;ОГЭ по&nbsp;истории.</dd></div>
           </dl>
+          <p class="case-note">«Честно, я очень переживала: взяла на&nbsp;себя большую ответственность. Когда времени мало, особенно важны система, стратегия и&nbsp;работа без&nbsp;лишнего».</p>
         </article>
 
         <article class="case case-more">
@@ -816,8 +1060,10 @@
         <div class="plan-sub">с&nbsp;ученика</div>
         <ul>
           <li>Пару подбираю по&nbsp;уровню знаний</li>
-          <li>Внимания почти как&nbsp;на&nbsp;индивидуальном</li>
-          <li>Есть с&nbsp;кем сравнить результат</li>
+          <li>Больше общения и&nbsp;живого разбора</li>
+          <li>Учимся друг у&nbsp;друга и&nbsp;обмениваемся идеями</li>
+          <li>Сохраняется индивидуальный подход</li>
+          <li>Мотивация и&nbsp;поддержка напарника</li>
         </ul>
         <button type="button" class="btn btn-ghost" data-pick><span>Выбрать</span></button>
       </article>
@@ -826,8 +1072,10 @@
         <div class="plan-price"><b>1&nbsp;900</b> <small>₽ за&nbsp;час</small></div>
         <div class="plan-sub">занятие один на&nbsp;один</div>
         <ul>
-          <li>Программа под ваш уровень и&nbsp;цель</li>
-          <li>Темп и&nbsp;расписание под ученика</li>
+          <li>Всё внимание&nbsp;— одному ученику</li>
+          <li>Программа под уровень и&nbsp;цель</li>
+          <li>Работаем именно над вашими пробелами</li>
+          <li>Максимум обратной связи и&nbsp;поддержки</li>
           <li>Срочная подготовка перед экзаменом</li>
         </ul>
         <button type="button" class="btn btn-ink" data-pick><span>Выбрать</span></button>
@@ -836,10 +1084,12 @@
     <div class="gifts up">
       <span class="mono">Во&nbsp;всех форматах</span>
       <span><b>Пробный урок</b> бесплатно</span>
-      <span><b>Записи уроков</b> и&nbsp;готовые материалы</span>
+      <span><b>Пробник каждый месяц</b> и&nbsp;разбор каждой ошибки</span>
+      <span><b>По&nbsp;кодификатору</b> и&nbsp;критериям ЕГЭ</span>
+      <span><b>Личный кабинет</b> с&nbsp;материалами и&nbsp;видеоуроками</span>
       <span><b>В&nbsp;конце года</b> бесплатное занятие «Быстрое повторение всего курса»</span>
     </div>
-    <p class="plans-note up">Расписание подбираем на&nbsp;пробном уроке.</p>
+    <p class="plans-note up">Формат и&nbsp;расписание подбираем на&nbsp;пробном уроке&nbsp;— тот, что&nbsp;подходит именно вам.</p>
   </div>
 </section>
 
@@ -1008,6 +1258,7 @@
         <b>Разделы</b>
         <a href="#about">Обо мне</a>
         <a href="#awards">Награды</a>
+        <a href="#publications">Научные публикации</a>
         <a href="#learning">Как&nbsp;проходит обучение</a>
         <a href="#cases">Истории учеников</a>
         <a href="#reviews">Отзывы</a>
@@ -1087,7 +1338,7 @@
     avito: ""
   };
 </script>
-<script src="assets/js/core.js?v=10" defer></script>
-<script src="assets/js/sections.js?v=10" defer></script>
+<script src="assets/js/core.js?v=12" defer></script>
+<script src="assets/js/sections.js?v=11" defer></script>
 </body>
 </html>
