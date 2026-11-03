@@ -745,6 +745,49 @@
   if (touchMQ.addEventListener) touchMQ.addEventListener('change', marqueeMode); else touchMQ.addListener(marqueeMode);
   marqueeMode();
 
+  /* ---------- телефон: точки под лентами и лёгкий «толчок» — видно, что их листают ---------- */
+  (function () {
+    var mq = matchMedia('(max-width: 760px)');
+    [['.sit-grid', '.stk'], ['.path-track', '.pc'], ['.fan', '.fc'], ['.plans', '.plan'],
+     ['.car-ph', '.car-in > .ph'], ['[data-car-track]', '.car-in > .cs'], ['.rv-strip', '.mq-track > .rvc:not([aria-hidden])']
+    ].forEach(function (df) {
+      var sc = $(df[0]); if (!sc) return;
+      var items = $$(df[1], sc); if (items.length < 2) return;
+      var dots = d.createElement('div'); dots.className = 'dots'; dots.setAttribute('aria-hidden', 'true');
+      items.forEach(function (it) {
+        var b = d.createElement('button'); b.type = 'button'; b.tabIndex = -1;
+        b.addEventListener('click', function () {
+          var r = it.getBoundingClientRect(), s = sc.getBoundingClientRect();
+          sc.scrollTo({ left: sc.scrollLeft + r.left - s.left - (sc.clientWidth - r.width) / 2, behavior: RM ? 'auto' : 'smooth' });
+        });
+        dots.appendChild(b);
+      });
+      sc.parentNode.insertBefore(dots, sc.nextSibling);
+      var btns = $$('button', dots), cur = -1;
+      function mark() {
+        var s = sc.getBoundingClientRect(), mid = s.left + sc.clientWidth / 2, best = 0, bd = 1e9;
+        items.forEach(function (it, i) { var r = it.getBoundingClientRect(), dd = Math.abs(r.left + r.width / 2 - mid); if (dd < bd) { bd = dd; best = i; } });
+        if (sc.scrollLeft < 4) best = 0;
+        if (sc.scrollLeft > sc.scrollWidth - sc.clientWidth - 4) best = items.length - 1;
+        if (best === cur) return; cur = best;
+        btns.forEach(function (b, i) { b.classList.toggle('on', i === best); });
+      }
+      sc.addEventListener('scroll', mark, { passive: true });
+      addEventListener('resize', mark); mark();
+      // один раз, когда лента впервые видна: карточки чуть «съезжают» влево и возвращаются
+      var moving = sc.matches('.car-ph, [data-car-track]') ? [$('.car-in', sc)] : sc.matches('.rv-strip') ? [$('.mq-track', sc)] : items;
+      var done = false;
+      new IntersectionObserver(function (es, ob) {
+        if (done || !es[0].isIntersecting || !mq.matches || RM || sc.scrollLeft > 4) return;
+        done = true; ob.disconnect();
+        setTimeout(function () {
+          moving.forEach(function (m) { m.classList.add('nudge'); });
+          setTimeout(function () { moving.forEach(function (m) { m.classList.remove('nudge'); }); }, 1300);
+        }, 900);
+      }, { threshold: 0.6 }).observe(sc);
+    });
+  })();
+
   /* ---------- главный цикл ---------- */
   var vel = 0, lastSy = sy, dir = 1, heroVis = true;
   new IntersectionObserver(function (es) { heroVis = es[0].isIntersecting; }).observe(hero);
