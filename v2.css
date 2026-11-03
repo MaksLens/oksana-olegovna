@@ -470,7 +470,7 @@ button{font:inherit;color:inherit}
 .car-btns{display:flex;gap:8px}
 .car-b{width:52px;height:52px;border-radius:50%;border:1.5px solid var(--ink);background:none;display:grid;place-items:center;cursor:pointer;transition:background .3s,color .3s}
 .car-b:hover{background:var(--ink);color:#fff}
-.car{overflow-x:auto;scrollbar-width:none;padding:10px 0 34px;cursor:grab}
+.car{overflow-x:auto;overflow-y:hidden;scrollbar-width:none;padding:10px 0 34px;cursor:grab}
 .car{-webkit-user-select:none;user-select:none}
 .car img{-webkit-user-drag:none;user-select:none}
 .car-wrap{position:relative}
@@ -524,6 +524,11 @@ button{font:inherit;color:inherit}
 .rvc{flex:none;height:450px;padding:8px;border:0;border-radius:28px;background:#fff;rotate:var(--r,0deg);box-shadow:0 34px 60px -34px rgba(20,30,70,.4);cursor:zoom-in;transition:rotate .6s var(--spring),scale .6s var(--spring)}
 .rvc img{display:block;height:100%;width:auto;border-radius:21px}
 .rvc:hover{rotate:0deg;scale:1.04}
+.rv-strip.rv-scroll{overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.rv-strip.rv-scroll::-webkit-scrollbar{display:none}
+.rv-strip.rv-scroll .mq-track{padding:0 18px}
+.rv-strip.rv-scroll .mq-track>[aria-hidden="true"]{display:none}
+.rv-strip.rv-scroll .rvc{scroll-snap-align:center}
 .rv-note{text-align:center;font-size:13.5px;color:var(--ink-3);padding:0 var(--gut)}
 
 /* ---------- цены ---------- */
@@ -929,6 +934,8 @@ button{font:inherit;color:inherit}
   .path-head p{margin-top:12px;font-size:15px}
   .pc{grid-row:2;align-self:start;scroll-snap-align:start;scroll-margin-left:18px;padding:22px}
 
+  .sit-grid,.fan,.path-track,.plans{overflow-y:hidden}
+
   /* награды: скан во всю карточку */
   .fan{gap:14px;padding:6px 18px 14px}
   .fc{flex:0 0 min(68vw,280px);height:auto;padding:16px 14px 16px;gap:3px}
@@ -951,7 +958,7 @@ button{font:inherit;color:inherit}
   .stack{gap:16px}
 
   /* цены: карточки вбок */
-  .plans{display:flex;max-width:none;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin:28px -18px 0;padding:0 18px 8px;scrollbar-width:none}
+  .plans{display:flex;max-width:none;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin:22px -18px 0;padding:6px 18px 14px;scrollbar-width:none}
   .plans::-webkit-scrollbar{display:none}
   .plan{flex:0 0 84%;scroll-snap-align:center}
   .plan-art{height:150px}

@@ -136,6 +136,11 @@
   /* ---------- появление ---------- */
   function show(el) {
     el.classList.add('in');
+    // в лентах вбок соседние карточки проявляются вместе — край следующей виден сразу
+    var row = el.parentNode;
+    if (row && row.matches && row.matches('.plans, .car-in, .sit-grid') && el.hasAttribute('data-reveal')) {
+      $$('[data-reveal]', row).forEach(function (x) { if (x !== el) { x.classList.add('in'); io.unobserve(x); } });
+    }
     if (el.classList.contains('pw')) el.classList.add('drawn');
     $$('.pw', el).forEach(function (p, k) { p.style.setProperty('--pd', (0.25 + k * 0.16) + 's'); p.classList.add('drawn'); });
     if (el.dataset.count) count(el);
@@ -721,6 +726,17 @@
     new IntersectionObserver(function (es) { o.vis = es[0].isIntersecting; }).observe(m);
     return o;
   });
+  // лента отзывов: на телефоне и планшете — обычная прокрутка пальцем вместо бегущей строки
+  var touchMQ = matchMedia('(max-width: 760px), (hover: none)');
+  function marqueeMode() {
+    marquees.forEach(function (o) {
+      if (!o.m.hasAttribute('data-pause')) return;
+      o.native = touchMQ.matches; o.m.classList.toggle('rv-scroll', o.native);
+      if (o.native) { o.tr.style.transform = ''; o.x = 0; }
+    });
+  }
+  if (touchMQ.addEventListener) touchMQ.addEventListener('change', marqueeMode); else touchMQ.addListener(marqueeMode);
+  marqueeMode();
 
   /* ---------- главный цикл ---------- */
   var vel = 0, lastSy = sy, dir = 1, heroVis = true;
@@ -730,7 +746,7 @@
     if (Math.abs(vel) > 0.6) dir = vel > 0 ? 1 : -1;
     if (!RM) {
       marquees.forEach(function (o) {
-        if (!o.vis || !o.w || o.hold) return;
+        if (!o.vis || !o.w || o.hold || o.native) return;
         o.x -= (0.55 * o.sp + Math.min(Math.abs(vel) * 0.35, 14)) * dir;
         if (o.x <= -o.w) o.x += o.w; if (o.x > 0) o.x -= o.w;
         var sk = o.flat ? 0 : clamp(-vel * 0.25, -8, 8);
