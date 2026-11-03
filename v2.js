@@ -393,6 +393,7 @@
   fcs.forEach(function (c, i) {
     c.addEventListener('pointerenter', function () { if (FINE) { fanHover = i; fanLayout(); } });
     c.addEventListener('click', function () { openAward(+c.dataset.award, c); });
+    c.addEventListener('pointerdown', function () { var o = AW[+c.dataset.award]; if (o && o.img && !o._pre) { o._pre = new Image(); o._pre.src = 'assets/awards/' + o.img + '.webp'; } });
   });
   fan.addEventListener('pointerleave', function () { fanHover = -1; fanLayout(); });
   var awPanel = fan.parentNode;
@@ -408,12 +409,18 @@
   function openModal(o) {
     lastFocus = d.activeElement;
     mCard.style.setProperty('--a', o.a); mCard.style.setProperty('--b', o.b);
-    mArt.innerHTML = useSvg(o.m, o.vb);
+    // есть фото — сразу показываем его (уже загруженное превью), без персонажа-заглушки;
+    // полноразмерный файл подменяет превью, как только догрузится
+    mArt.innerHTML = '';
     if (o.img) {
-      var im = new Image(); im.alt = o.t;
-      im.onload = function () { if (modal.classList.contains('open') && $('#modal-t').textContent === o.t) { mArt.innerHTML = ''; mArt.appendChild(im); } };
-      im.src = o.img;
-    }
+      var im = new Image(); im.alt = o.t; im.decoding = 'async';
+      im.src = o.thumb || o.img; mArt.appendChild(im);
+      if (o.thumb && o.thumb !== o.img) {
+        var full = new Image();
+        full.onload = function () { if (im.isConnected) im.src = o.img; };
+        full.src = o.img;
+      }
+    } else mArt.innerHTML = useSvg(o.m, o.vb);
     $('.modal-k', modal).textContent = o.k; $('#modal-t').textContent = o.t;
     $('.modal-txt', modal).innerHTML = o.html;
     modal.classList.add('open'); modal.setAttribute('aria-hidden', 'false'); root.classList.add('lock');
@@ -452,7 +459,7 @@
   ];
   function openAward(i) {
     var o = AW[i]; if (!o) return;
-    openModal({ k: o.k, t: o.t, m: o.m, vb: o.vb, a: o.a, b: o.b, img: o.img ? 'assets/awards/' + o.img + '.webp' : '', html: P_(o.txt) });
+    openModal({ k: o.k, t: o.t, m: o.m, vb: o.vb, a: o.a, b: o.b, img: o.img ? 'assets/awards/' + o.img + '.webp' : '', thumb: o.img ? 'assets/awards/thumb/' + o.img + '.webp' : '', html: P_(o.txt) });
   }
 
   var ST = [
