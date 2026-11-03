@@ -317,7 +317,8 @@
   function pathMeasure() {
     P.on = FINE && vw > 1024 && vh >= 680 && !RM;
     P.el.classList.toggle('is-pin', P.on);
-    if (!P.on) { P.el.style.height = ''; P.track.style.transform = ''; P.cards.forEach(function (c) { c.style.transform = ''; c.style.opacity = ''; }); return; }
+    if (!P.on) { P.el.style.height = ''; P.track.style.transform = ''; P.cards.forEach(function (c) { c.style.transform = ''; c.style.opacity = ''; }); pathMobMeasure(); return; }
+    P.el.classList.remove('is-mob'); P.mob = false;
     P.track.style.transform = '';
     var tw = P.track.scrollWidth;
     P.dist = Math.max(1, tw - vw);
@@ -348,6 +349,29 @@
     return P.len;
   }
   var curYear = -1;
+  // телефон: линия слева прорисовывается, карточки проявляются, внизу липкая лента годов
+  P.mob = false;
+  function pathMobMeasure() {
+    P.mob = !P.on && vw <= 760 && !RM;
+    P.el.classList.toggle('is-mob', P.mob);
+    if (!P.mob) { P.cards.forEach(function (c) { c.classList.remove('on'); }); return; }
+    var a = P.cards[0], b = P.cards[P.cards.length - 1];
+    P.lt = a.offsetTop + 34; P.lh = b.offsetTop + 34 - P.lt;
+    P.track.style.setProperty('--lt', P.lt + 'px'); P.track.style.setProperty('--lh', P.lh + 'px');
+  }
+  function pathMobUpdate() {
+    if (!P.mob) return;
+    var tr = P.track.getBoundingClientRect();
+    if (tr.bottom < -200 || tr.top > vh + 200) return;
+    P.track.style.setProperty('--pp', clamp((vh * 0.62 - (tr.top + P.lt)) / P.lh, 0, 1).toFixed(4));
+    var yi = 0;
+    P.cards.forEach(function (c, k) { if (c.getBoundingClientRect().top < vh * 0.72) { c.classList.add('on'); yi = k; } });
+    if (yi !== curYear) {
+      curYear = yi;
+      P.years.forEach(function (s, k) { s.classList.toggle('on', k === yi); });
+      var s = P.years[yi]; P.yInd.style.width = s.offsetWidth + 'px'; P.yInd.style.transform = 'translateX(' + s.offsetLeft + 'px)';
+    }
+  }
   function pathUpdate() {
     if (!P.on) return;
     var p = clamp((sy - P.top) / P.dist, 0, 1), shift = p * P.dist;
@@ -748,7 +772,7 @@
   /* ---------- телефон: точки под лентами и лёгкий «толчок» — видно, что их листают ---------- */
   (function () {
     var mq = matchMedia('(max-width: 760px)');
-    [['.sit-grid', '.stk'], ['.path-track', '.pc'], ['.fan', '.fc'], ['.plans', '.plan'],
+    [['.sit-grid', '.stk'], ['.fan', '.fc'], ['.plans', '.plan'],
      ['.car-ph', '.car-in > .ph'], ['[data-car-track]', '.car-in > .cs'], ['.rv-strip', '.mq-track > .rvc:not([aria-hidden])']
     ].forEach(function (df) {
       var sc = $(df[0]); if (!sc) return;
@@ -836,7 +860,7 @@
   /* ---------- прокрутка и размеры ---------- */
   function onScroll() {
     sy = scrollY;
-    navUpdate(); scrubUpdate(); drawUpdate(); megaUpdate(); stackUpdate(); pathUpdate();
+    navUpdate(); scrubUpdate(); drawUpdate(); megaUpdate(); stackUpdate(); pathUpdate(); pathMobUpdate();
   }
   addEventListener('scroll', onScroll, { passive: true });
   var rT;

@@ -364,8 +364,8 @@ button{font:inherit;color:inherit}
 .pc-chips{display:flex;flex-wrap:wrap;gap:6px}
 .pc-chips span{font-size:12.5px;font-weight:500;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3)}
 .pc-list{list-style:none;display:flex;flex-direction:column;gap:6px;font-size:15px}
-.pc-list li{display:flex;gap:8px;align-items:baseline}
-.pc-list li::before{content:"";width:8px;height:8px;border-radius:50%;background:#fff;flex:none;translate:0 -1px}
+.pc-list li{position:relative;padding-left:16px}
+.pc-list li::before{content:"";position:absolute;left:0;top:.55em;width:8px;height:8px;border-radius:50%;background:#fff}
 .pc-link{align-self:flex-start;margin-top:auto;display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--ink);padding:9px 15px;border-radius:999px;font-size:13.5px;font-weight:600;text-decoration:none;position:relative;z-index:1}
 .score-rings{display:flex;gap:20px;margin:6px 0}
 .sr{position:relative;width:118px;text-align:center}
@@ -934,13 +934,24 @@ button{font:inherit;color:inherit}
   .t-85 b{font-size:120px}
   .t-ring{width:70px;right:18px;top:18px}
 
-  /* мой путь: лента вбок, заголовок стоит на месте */
-  .path-pin{padding:44px 0 36px}
-  .path-track{display:grid;grid-auto-flow:column;grid-template-columns:none;grid-template-rows:auto 1fr;grid-auto-columns:min(84vw,340px);gap:22px 12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 18px 6px;margin:0;scrollbar-width:none}
-  .path-track::-webkit-scrollbar{display:none}
-  .path-head{grid-row:1;grid-column:1/span 6;position:sticky;left:18px;justify-self:start;width:calc(100vw - 52px);margin:0}
+  /* мой путь: вертикальная линия, которая прорисовывается по прокрутке */
+  .path-pin{padding:44px 0 30px;overflow:clip}
+  .path-track{display:flex;flex-direction:column;gap:20px;padding:0 16px 0 50px;margin:0;overflow:visible}
+  .path-head{margin:0 0 8px -34px;width:auto}
   .path-head p{margin-top:12px;font-size:15px}
-  .pc{grid-row:2;align-self:start;scroll-snap-align:start;scroll-margin-left:18px;padding:22px}
+  .path-track::before,.path-track::after{content:"";position:absolute;left:27px;top:var(--lt,0px);width:3px;border-radius:2px}
+  .path-track::before{height:var(--lh,0px);background:rgba(255,255,255,.12)}
+  .path-track::after{height:calc(var(--lh,0px) * var(--pp,0));background:linear-gradient(180deg,#7FE0F0,#CDF36A);box-shadow:0 0 14px rgba(205,243,106,.7)}
+  .pc{overflow:visible;padding:22px;opacity:.18;translate:28px 0;filter:blur(4px) saturate(.6);transition:opacity .8s var(--ease),translate 1s var(--ease),filter .8s var(--ease)}
+  .pc.on{opacity:1;translate:0 0;filter:none}
+  .pc::before{content:"";position:absolute;left:-32px;top:26px;width:15px;height:15px;border-radius:50%;background:var(--dark);border:3px solid rgba(255,255,255,.28);transition:background .5s,border-color .5s,box-shadow .5s,scale .6s var(--spring)}
+  .pc.on::before{background:var(--lime);border-color:var(--lime);scale:1.15;box-shadow:0 0 0 6px rgba(205,243,106,.16),0 0 18px rgba(205,243,106,.85)}
+  .pc .pc-art{scale:.3;opacity:0;rotate:-14deg;transition:scale .9s var(--spring) .25s,opacity .4s .25s,rotate .9s var(--spring) .25s}
+  .pc.on .pc-art{scale:1;opacity:1;rotate:0deg}
+  .pc .pc-y{display:inline-block;clip-path:inset(0 100% 0 0);transition:clip-path 1s cubic-bezier(.65,0,.35,1) .1s}
+  .pc.on .pc-y{clip-path:inset(0 0 0 0)}
+  .path.is-mob .path-years{display:flex;position:sticky;bottom:92px;z-index:5;width:max-content;max-width:calc(100% - 24px);margin:22px auto 0;gap:0;padding:4px;border-radius:999px;background:rgba(18,20,28,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 12px 30px -12px rgba(0,0,0,.7)}
+  .path.is-mob .path-years span{padding:6px 9px;font-size:12px}
 
   .sit-grid,.fan,.path-track,.plans{overflow-y:hidden}
   .t-desk{display:none}
