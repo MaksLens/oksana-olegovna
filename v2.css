@@ -294,7 +294,7 @@ button{font:inherit;color:inherit}
 .sit-grid{position:relative;z-index:2;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;margin-top:64px}
 .stk{position:relative;perspective:1300px;cursor:grab;touch-action:pan-y;user-select:none;-webkit-user-select:none;transform:translate(var(--dx,0px),calc(var(--y) + var(--dy,0px))) rotate(calc(var(--r) + var(--dr,0deg)));transition:transform .9s var(--spring)}
 .stk.drag{transition:none;cursor:grabbing;z-index:5}
-.stk-in{position:relative;aspect-ratio:4/5;transform-style:preserve-3d;transition:transform .9s var(--ease)}
+.stk-in{position:relative;aspect-ratio:4/5.3;transform-style:preserve-3d;transition:transform .9s var(--ease)}
 .stk.flip .stk-in{transform:rotateY(180deg)}
 .stk-f,.stk-b{position:absolute;inset:0;border-radius:26px;padding:20px;display:flex;flex-direction:column;-webkit-backface-visibility:hidden;backface-visibility:hidden;box-shadow:0 34px 50px -26px rgba(5,20,90,.6)}
 .stk-f{background:#fff;color:var(--ink)}
@@ -303,17 +303,19 @@ button{font:inherit;color:inherit}
 .stk-art{flex:1;min-height:0;width:100%;margin:8px 0;filter:drop-shadow(0 10px 14px rgba(20,30,80,.12));transition:transform .6s var(--spring)}
 .stk:hover .stk-art{transform:scale(1.06) rotate(-3deg)}
 .stk .chip{align-self:flex-start}
-.stk-foot{display:flex;align-items:center;justify-content:space-between;gap:8px}
-.stk-turn{position:absolute;right:16px;bottom:60px;z-index:1;display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 12px 0 10px;border-radius:999px;background:var(--blue);color:#fff;font-size:12.5px;white-space:nowrap;box-shadow:0 8px 18px -8px rgba(47,107,255,.8);animation:ping 2.4s ease-out infinite}
+.stk-foot{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.stk-turn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:44px;border-radius:14px;background:var(--blue);color:#fff;font-size:14px;box-shadow:0 10px 22px -10px rgba(47,107,255,.9);animation:ping 2.4s ease-out infinite;transition:background .3s,transform .4s var(--spring)}
 .stk-turn b{font-weight:600}
-.stk:hover .stk-turn svg{animation:spin 1s var(--ease)}
+.stk:hover .stk-turn{background:#1F55E6;transform:translateY(-2px)}
+.stk-turn svg{animation:tap 1.6s ease-in-out infinite;transform-origin:50% 90%}
+@keyframes tap{0%,60%,100%{transform:none}20%{transform:translateY(2px) scale(.9)}35%{transform:none}}
 @keyframes ping{0%{box-shadow:0 0 0 0 rgba(47,107,255,.55)}70%,100%{box-shadow:0 0 0 12px rgba(47,107,255,0)}}
 .t-mob{display:none}
 .dots{display:none}
 .stk-clip{position:absolute;top:-30px;right:28px;width:22px;height:54px;rotate:12deg;z-index:2}
 .stk-bk{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--lime)}
 .stk-b p{font-size:15px;line-height:1.45}
-.stk-flip{font-size:13px;opacity:.6}
+.stk-flip{display:flex;align-items:center;justify-content:center;width:100%;height:42px;border-radius:14px;border:1.5px solid rgba(255,255,255,.35);font-size:14px;font-weight:600}
 
 /* ---------- обо мне ---------- */
 .about{overflow-x:clip}
@@ -957,6 +959,7 @@ button{font:inherit;color:inherit}
   .t-desk{display:none}
   .t-mob{display:inline}
   .stk .chip{font-size:11px;padding:0 10px}
+  .stk-in{aspect-ratio:4/5.5}
   .dots{display:flex;justify-content:center;gap:6px;margin:4px auto 0;padding:6px 0;color:var(--ink)}
   .panel-blue .dots,.panel-dark .dots,.path .dots{color:#fff}
   .dots button{width:7px;height:7px;padding:0;border:0;border-radius:4px;background:currentColor;opacity:.25;cursor:pointer;transition:width .35s var(--ease),opacity .35s}
