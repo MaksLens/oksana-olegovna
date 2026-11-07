@@ -1,1 +1,57 @@
+# --- github-backup: общее (правится в ~/Movies/github-backup/backup.py) ---
+# базы и дампы — личные данные, на GitHub не кладём
+*.db
+*.db-*
+*.sqlite
+*.sqlite3
+*.sql
+*.sql.gz
+*.db.gz
+*.dump
+# ключи, пароли, настройки с токенами
+*-conf.json
+*conf.json.bak*
+.env
+.env.*
+*.key
+*.pem
+*.p12
+id_*
+VHOD*.txt
+*вход*.txt
+*Вход*.txt
+*входы*.txt
+*admin-vhod*
+secrets/
+.secrets/
+# таблицы с телефонами и именами
+*.xlsx
+*.xls
+*.csv
+# копии и мусор
+*.bak
+*.bak-*
+*.bak.*
+*.orig-*
+backups/
+.DS_Store
+._*
+__pycache__/
+*.pyc
+.venv/
+venv/
+*-venv/
+node_modules/
+.shots/
+# видео и звук
+*.mp4
+*.mov
+*.m4v
+*.webm
+*.wav
+*.mp3
+*.m4a
+*.aac
+*.flac
+# --- конец общего ---
 .DS_Store
